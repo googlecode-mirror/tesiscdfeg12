@@ -1,0 +1,36 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardPermission
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_guard_permission
+    with_doctrine_route:   true
+
+    config:
+      fields:
+        name:        { label: Nombre }
+        description: { label: Descripción }
+        created_at:  { label: Creado }
+        updated_at:  { label: Usuario }
+        groups_list: { label: Grupos }
+        users_list:  { label: Usuarios }
+
+      filter:
+        display: [name]
+
+      list:
+        title: Lista de permisos
+        display: [=name, description]
+
+      edit:
+        title: Editando permisos de "%%name%%"
+
+      new:
+        title: Nuevo permiso
+
+      form:
+        display: [name, description, groups_list, users_list]

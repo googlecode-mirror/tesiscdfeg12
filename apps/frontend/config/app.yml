@@ -1,0 +1,26 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  envia_mails: false
+  max_num_asignados: 12
+  digitos_telefono: 9
+  digitos_movil: 9
+  digitos_fecha: 10
+  caracteres_sector: 50
+  caracteres_correo: 80
+  caracteres_nombre: 80
+  caracteres_apellidos: 80
+  caracteres_direccion: 140
+  caracteres_descripcion: 140
+  caracteres_usuario: 25
+  caracteres_clave: 15
+  meta:
+    caracteres_titulo: 100
+    caracteres_descripcion: 140
+  correo:
+    cuenta_salida: 'info@cdfeg12.com'
+    nombre_salida: 'Administración de Células CDFE'
+    subject_asignacion: 'Ya tiene un Líder de Célula'
+    subject_lider: 'Asignación de Nuevo Discípulo'

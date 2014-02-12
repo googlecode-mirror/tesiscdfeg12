@@ -1,0 +1,1 @@
+<?php decorate_with('layout_desktop') ?>

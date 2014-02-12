@@ -1,0 +1,127 @@
+ActividadSeguimiento:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    nombre:             { type: string(100), notnull: true }
+    descripcion:        { type: clob }
+Asignacion:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    fecha:              { type: date(25), notnull: true }
+    discipulo_lider_id: { type: integer, notnull: true }
+    discipulo_nuevo_id: { type: integer, notnull: true }
+  relations:
+    sfGuardUser:        { onDelete: CASCADE, alias: DiscipuloLider, local: discipulo_lider_id, foreign: id, foreignAlias: Lider }
+    sfGuardUser:        { onDelete: CASCADE, alias: DiscipuloNuevo, local: discipulo_nuevo_id, foreign: id, foreignAlias: Nuevo }
+    Seguimiento:        { onDelete: RESTRICT, foreignAlias: Seguimiento, local: id, foreign: asignacion_id }
+Asistencia:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    reunion_id:         { type: integer, notnull: true }
+    miembro_celula_id:  { type: integer, notnull: true }
+  relations:
+    Reunion:            { onDelete: RESTRICT, alias: Reunion, local: reunion_id, foreign: id, foreignAlias: Reuinion }
+    MiembroCelula:      { onDelete: RESTRICT, alias: Miembro, local: miembro_celula_id, foreign: id, foreignAlias: MiembroCelula }
+Celula:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    fecha:              { type: date(25), notnull: true }
+    dias_celula:        { type: string(45), notnull: true }
+    horario_celula:     { type: time(25), notnull: true }
+    discipulo_lider_id: { type: integer, notnull: true, unique: true }
+  relations:
+    sfGuardUser:        { onDelete: CASCADE, alias: Lider, local: discipulo_lider_id, foreign: id, foreignAlias: Lider }
+Escuela:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    fecha_ingreso:      { type: timestamp(25), notnull: true }
+    discipulo_id:       { type: integer, notnull: true }
+    nivel_id:           { type: integer, notnull: true }
+  relations:
+    sfGuardUser:        { onDelete: CASCADE, alias: Discipulo, local: discipulo_id, foreign: id, foreignAlias: Discipulo }
+    NivelEscuela:       { onDelete: CASCADE, alias: Nivel, local: nivel_id, foreign: id, foreignAlias: Nivel }
+Evento:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    titulo:             { type: string(), notnull: true }
+    fecha_hora:         { type: timestamp(25), notnull: true }
+    lugar:              { type: clob, notnull: true }
+    descripcion:        { type: clob, notnull: true }
+    discipulo_id:       { type: integer, notnull: true }
+  relations:
+    sfGuardUser:        { onDelete: CASCADE, alias: Discipulo, local: discipulo_id, foreign: id, foreignAlias: Discipulo }
+Ficha:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    descripcion:        { type: clob }
+    fecha:              { type: date(25) }
+    tipo_indicador_id:  { type: integer, notnull: true }
+    discipulo_id:       { type: integer, notnull: true }
+  relations:
+    sfGuardUser:        { onDelete: CASCADE, alias: Discipulo, local: discipulo_id, foreign: id, foreignAlias: Discipulo }
+    TipoIndicador:      { onDelete: CASCADE, local: tipo_indicador_id, foreign: id, foreignAlias: Indicador }
+Mensaje:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    titulo:             { type: string(), notnull: true }
+    estado:             { type: integer(1) }
+    contenido:          { type: clob, notnull: true }
+    tipo_mensaje_id:    { type: integer, notnull: true }
+    discipulo_id:       { type: integer, notnull: true }
+  relations:
+    sfGuardUser:        { onDelete: CASCADE, alias: Discipulo, local: discipulo_id, foreign: id, foreignAlias: Discipulo }
+    TipoMensaje:        { onDelete: CASCADE, local: tipo_mensaje_id, foreign: id, foreignAlias: Indicador }
+Meta:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    titulo:             { type: string(200), notnull: true }
+    fecha_cumplir:      { type: timestamp(25), notnull: true }
+    estado:             { type: integer(1), notnull: true }
+    descripcion:        { type: clob, notnull: true }
+    discipulo_id:       { type: integer, notnull: true }
+  relations:
+    sfGuardUser:        { onDelete: CASCADE, alias: Discipulo, local: discipulo_id, foreign: id, foreignAlias: Discipulo }
+MiembroCelula:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    celula_id:          { type: integer, notnull: true }
+    discipulo_id:       { type: integer, notnull: true }
+  relations:
+    sfGuardUser:        { onDelete: CASCADE, alias: Discipulo, local: discipulo_id, foreign: id, foreignAlias: Discipulo }
+    Celula:             { onDelete: RESTRICT, foreignAlias: Celula, local: celula_id, foreign: id }
+  indexes:
+    MiembroDeCelula:
+      fields:           [celula_id, discipulo_id]
+      type:             unique
+NivelEscuela:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    nombre:             { type: string(100), notnull: true }
+    descripcion:        { type: clob, notnull: true }
+Reunion:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    fecha:              { type: date(25), notnull: true}
+    palabra:            { type: clob, notnull: true }
+    observaciones:      { type: clob, notnull: true }
+    celula_id:          { type: integer, notnull: true }
+  relations:
+    Celula:             { onDelete: RESTRICT, alias: Celula, local: celula_id, foreign: id, foreignAlias: Celula }
+Seguimiento:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    descripcion:        { type: clob, notnull: true }
+    fecha:              { type: date(25), notnull: true }
+    asignacion_id:      { type: integer,  notnull: true }
+    actividad_seguimiento_id: { type: integer, notnull: true }
+  relations:
+    Asignacion:         { onDelete: CASCADE, local: asignacion_id, foreign: id, foreignAlias: Asignacion }
+    ActividadSeguimiento: { onDelete: CASCADE, local: actividad_seguimiento_id, foreign: id, foreignAlias: Actividad }
+TipoIndicador:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    indicador:          { type: string(100), notnull: true }
+    tipo_discipulo:     { type: integer(2), notnull: true }
+TipoMensaje:
+  actAs: [ Timestampable: ~ ]
+  columns:
+    nombre:             { type: string(50), notnull: true }

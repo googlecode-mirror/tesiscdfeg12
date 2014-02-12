@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="es" datatype="plaintext" original="messages" date="2011-11-17T20:19:37Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>New</source>
+        <target>Nuevo</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Back to list</source>
+        <target>Todos</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Delete</source>
+        <target>Eliminar</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Edit</source>
+        <target>Editar</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Save</source>
+        <target>Guardar</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Are you sure?</source>
+        <target>Se requiere confirmación</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>List</source>
+        <target>Todos</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Add new goal. This is usefull for remeber wath to do and when do it.</source>
+        <target>Agregar nueva meta. Es de mucha utilidad para recordar que hacer y cuando hacerlo.</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Add new follower, use this to add a new follower for your group, first they have to be assined.</source>
+        <target>Agregar nuevo discípulo, usa este enlace para agregar un nuevo discípulo para tu célula, primero debe estar asignado.</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Add new assigned, use this to add a new assigned and theach them about the power of Jesus.</source>
+        <target>Agregar nuevo asignado, usa este enlace para agregar un nuevo asignado y enseñarles acerca del poder de Jesús.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

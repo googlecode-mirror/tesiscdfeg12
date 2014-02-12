@@ -1,0 +1,25 @@
+sfGuardGroup:
+  nuevos:
+    name: Nuevos
+    description: |
+      Agrupa los permisos de nuevos
+    Permissions: [ nuevo ]
+  discipulos:
+    name: Discipulos
+    description: |
+      Agrupa los permisos de nuevo
+    Permissions: [ discipulo ]
+  lideres_celula:
+    name: Lideres de celula
+    description: |
+      Agrupa los permisos de lideres de celula
+    Permissions: [ discipulo, lider_celula ]
+  lideres_red:
+    name: Lideres de red
+    description: |
+      Agrupa los permisos de lideres de red
+    Permissions: [ discipulo, lider_celula, lider_red ]
+  administradores:
+    name:           Administradores
+    description:    Grupo de adrminitradores
+    Permissions:    [adminisrador]

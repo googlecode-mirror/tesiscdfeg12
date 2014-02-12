@@ -1,0 +1,10 @@
+/cache
+/log
+/.settings
+/nbproject
+plugins/.channels
+plugins/.depdb
+plugins/.depdblock
+plugins/.filemap
+plugins/.lock
+plugins/.registry

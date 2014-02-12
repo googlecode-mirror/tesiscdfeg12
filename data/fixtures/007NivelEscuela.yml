@@ -1,0 +1,36 @@
+NivelEscuela:
+  post_encuentro:
+    nombre: Post Encuentro
+    descripcion: |
+      Para afianzar lo que se ha aprendido en el encuentro.
+  primer_nivel:
+    nombre: Primer Nivel
+    descripcion: |
+      El camino ha iniciado.
+  segunto_nivel:
+    nombre: Segundo Nivel
+    descripcion: |
+      Siente como el fuego el Espiritu Santo se enciende en tu corazon.
+  tercer_nivel:
+    nombre: Tercer Nivel
+    descripcion: |
+      Al finalizar este nivel obtienes el don de crear tu celula.
+  cuarto_nivel:
+    nombre: Cuarto Nivel
+    descripcion: |
+      Estas llevando tu celula y aprendes mas sobre como levantar a tus
+      seguidores.
+  quinto_nivel:
+    nombre: Quinto Nivel
+    descripcion: |
+      El reto de ser un maestro se presenta y ahora tus seguidores ven mucho mas
+      la gracia de Dios en sus vidas.
+  sexto_nivel:
+    nombre: Sexto Nivel
+    descripcion: |
+      Eres llamado a consolidar mas almas y tus seguidores saben lo gran lider
+      que eres.
+  septimo_nivel:
+    nombre: Septimo Nivel
+    descripcion: |
+      La ronda final ahora estas listo para seguir escuela de maestros.

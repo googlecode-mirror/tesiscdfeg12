@@ -1,0 +1,25 @@
+sfGuardPermission:
+  nuevo:
+    name: Nuevo
+    description: |
+      Esta credencial nu le permite a usuario ingresar en el sistema, el usurio
+      permanece inactivo mientras tenga esta credencial
+  discipulo:
+    name: Discipulo
+    description: |
+      Esta credencial solo le permite ver a nivel de lectura todo lo referente 
+      a su celula
+  lider_celula:
+    name: Lider de celula
+    description: |
+      Esta credencial le permite al usuario registrar celugramas, asistencias y
+      muchos otros datos que puede administrar
+  lider_red:
+    name: Lider de red
+    description: |
+      Esta credencial le permite al usuario administrar los datos de sus celulas
+      los datos de sus discipulos etc.
+  adminisrador:
+    name: Administrador
+    description: |
+      Esta es la credencial de administracion general del sistema

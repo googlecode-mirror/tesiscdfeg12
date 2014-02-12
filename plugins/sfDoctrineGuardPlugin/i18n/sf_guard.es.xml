@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd" >
+<xliff version="1.0">
+    <file original="global" source-language="en" datatype="plaintext">
+        <header/>
+        <body>
+            <trans-unit>
+                <source>Required.</source>
+                <target>Obligatorio.</target>
+            </trans-unit> 
+            <trans-unit>
+                <source>First name</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Username</source>
+                <target>Usuario</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Password</source>
+                <target>Contraseña</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Remember</source>
+                <target>Recordar</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Signin</source>
+                <target>Ingresar</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Forgot your password?</source>
+                <target>¿Olvidó su clave?</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Want to register?</source>
+                <target>Registrarse</target>
+            </trans-unit>
+            <trans-unit>
+                <source>You don't have the required permission to access this page.</source>
+                <target>No tiene los permisos requeridos para acceder a esta página.</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Do not worry, we can help you get back in to your account safely!</source>
+                <target>¡No se preocupe, podemos ayudarle a volver a su cuenta de forma segura!</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Fill out the form below to request an e-mail with information on how to reset your password.</source>
+                <target>Rellene el siguiente formulario para solicitar un e-mail con información sobre cómo restablecer la contraseña.</target>
+            </trans-unit>
+            <trans-unit>
+                <source>This e-mail is being sent because you requested information on how to reset your password.</source>
+                <target>Este e-mail está siendo enviado, ya que solicitó información acerca de cómo restablecer su contraseña.</target>
+            </trans-unit>
+            <trans-unit>
+                <source>You can change your password by clicking the below link which is only valid for 24 hours:</source>
+                <target>Usted puede cambiar su contraseña haciendo clic en el enlace de abajo que sólo es válido durante 24 horas:</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Click to change password</source>
+                <target>Haga clic para cambiar la contraseña</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Hi %first_name%</source>
+                <target>Hola %first_name%</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Below you will your username and new password:</source>
+                <target>A continuación su nombre de usuario y la contraseña de nuevo:</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Register</source>
+                <target>Registro</target>
+            </trans-unit>
+            <trans-unit>
+                <source>The two passwords must be the same.</source>
+                <target>Las dos contraseñas deben ser iguales.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

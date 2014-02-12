@@ -1,0 +1,86 @@
+body, imput, select, textarea {font-family: Verdana;font-size: 13px;}
+h1,h2,h3,h4 {font-family: Verdana;}
+body#cross{background: #ffffff url('../images/desktop/bg_desktop.jpg') no-repeat top center fixed;border: none;margin: 0;padding: 0;}
+body#app_window{background: transparent;border: none;margin: 0;padding: 0;}
+th {text-align: left;}
+form table tr td {color: #aaa;font-size: 12px;}
+h2.subtitulo {margin: 0;padding: 0;}
+a {text-decoration: none;}
+a img {border: none;}
+.clear {clear: both;height: 2px;margin: 0px;padding: 0px;}
+#signin_form {background: transparent;margin: 200px auto 0px auto;height: 1%;width: 625px;clear: both;}
+#signin_form #container {background: transparent url('../images/desktop/bg_login.png');height: 214px;width: 625px;clear: both;}
+#signin_form #welcome_message {background: transparent;float: left;}
+#signin_form #welcome_message h1{text-align: center;color: #000;padding: 5px 5px 5px 5px;}
+#signin_form #welcome_message p{text-align: justify;font-size: 105%;color: buttontext;padding: 0px 5px;}
+#signin_form form {float: right;padding: 5px 12px 20px 12px;}
+#signin_form form, #signin_form #welcome_message {width: 295px;height: 189px;}
+div#sf_admin_container h1, h1.titulo{font: bold 330%/100% "Lucida Grande", Arial, sans-serif;position: relative;margin: 5px 0px 15px 0px;color: #333333;display: block;font-size: 180%;text-align: center;}
+/*Barra de tareas*/
+#task_bar {position: absolute;bottom: 0;left: 0;height: 50px;width: 100%;background: transparent url('/images/desktop/dock/taskbar.png') bottom left repeat-x;z-index: -20;}
+/****** TOLLBAR ******/
+#left_menu {float: left;background: #ddd top left repeat;width: 200px;margin: 0px;padding: 0px;height: 1024px;}
+.menu_container {color: #555;font-size: 12px;padding-left: 5px;}
+.menu_group {list-style: none;padding: 0px;margin: 5px;width: 200px;}
+.menu_link, .menu_singout {cursor: pointer;padding-left: 10px;color: #000;font-weight: normal;line-height: 26px;width: 200px;}
+.menu_link_over, .menu_link_selected {background: transparent url('/images/desktop/menu_selected.png') bottom left no-repeat;color: #fff;font-size: 13px;width: 200px;}
+#tool_bar {background: transparent url(/images/desktop/toolbar/no_flicker.jpg) repeat-x bottom left;height: 50px;width: 100%;list-style: none;margin: 0px 0px 10px 0px;padding: 0px;}
+.toolbar_first {background-image:url(/images/desktop/toolbar/end.jpg);background-repeat:no-repeat;background-position: left 0px;}
+.toolbar_last {float: right;background-image:url(/images/desktop/toolbar/end.jpg);background-repeat:no-repeat;background-position: right -50px;}
+.tool_item {font-size: 10px;float: left;height: 50px;width: 50px;margin: 0px 5px 0px 0px;text-align: center;}
+.tool_item_hover {background: #ddd;}
+.tool_separator {background: #777;height: 50px;width: 2px;float: left;}
+/********  CONTENEDOR PRINCIPAL ********/
+#main_container {float: left;background: #fff;}
+/********  DATATABLES ********/
+table.datatables thead {font-size: 75%;}
+table.datatables tbody {font-size: 75%;}
+div.fg-toolbar.ui-toolbar.ui-widget-header.ui-corner-bl.ui-corner-br.ui-helper-clearfix,
+div.fg-toolbar.ui-toolbar.ui-widget-header.ui-corner-tl.ui-corner-tr.ui-helper-clearfix{font-size: 70%;}
+/********  TOOLTIP ********/
+.tooltip {display: none;background: transparent url('/images/jui/black_arrow.png');font-size: 12px;height: 70px;width: 160px;padding: 25px;color: #fff;}
+/********  MENSAJES FLASH ********/
+.flash {color: #fff;display: none;padding: 8px 8px 8px 60px;position: absolute;top: 0px;left: 0px;width: 100%;z-index: 1024;}
+.flash.notice {background: limegreen;}
+.flash.error {background: #d33;}
+/************** TABS  ****************
+/* root element for tabs  */
+ul.css-tabs {margin:0 !important;padding:0;height:30px;border-bottom:1px solid #666;}
+/* single tab */
+ul.css-tabs li {float:left;padding:0;margin:0;list-style-type:none;}
+/* link inside the tab. uses a background image */
+ul.css-tabs a {float:left;font-size:13px;display:block;padding:5px 30px;text-decoration:none;border:1px solid #666;border-bottom:0px;height:18px;background-color:#efefef;color:#777;margin-right:2px;position:relative;top:1px;outline:0;-moz-border-radius:4px 4px 0 0;}
+ul.css-tabs a:hover {background-color:#F7F7F7;color:#333;}
+/* selected tab */
+ul.css-tabs a.current {background-color:#ddd;border-bottom:1px solid #ddd;color:#000;cursor:default;}
+td.select_check {text-align: center;}
+#btn_asignar {position: absolute;top: 170px;right: 40px;width: 100px;height: 50px;}
+.chbox_elemento {margin: 0;padding: 0;}
+ul.error_list {margin: 0;padding: 0;list-style: none;color: red;font-size: 12px;}
+#lista_asignacion {display: none;position: absolute;top: 50px;right: 20px;max-height: 200px;overflow: auto;width: 280px;}
+#formulario_registro {position: absolute;z-index: 10;top: 0px;left: 0px;background: #fff;display: none;padding: 15px;}
+.enlace_registro {cursor: pointer;}
+.filtro_listas {padding: 3px 27px 3px 3px;margin: 0px 0px 5px 0px;background: #fff url('/images/toolbar/m_list.png') no-repeat right;width: 200px;border: none;}
+/**************** MODAL BOX*****************/
+.overlay {/* must be initially hidden */display:none;/* place overlay on top of other elements */z-index:10000;/* styling */background-color:#555;border:1px solid #666;/* CSS3 styling for latest browsers */-moz-box-shadow:0 0 90px 5px #000;-webkit-box-shadow: 0 0 90px #000;padding: 10px;color: #000;}
+.overlay .close {background-image:url(/images/desktop/close.png);position:absolute;left:-19px;top:-19px;cursor:pointer;height:24px;width:24px;}
+.etiqueta {font-weight: bold;}
+.bottom_box {width: 240px;float: left;margin: 5px;height: 250px;overflow: auto;}
+h2.titulo {text-align: center;margin: 5px 0px;}
+.lista_elementos {margin: 10px 0px;background: #fff;width: 300px; height: 200px; overflow: auto; list-style: none; margin: 0; padding: 0;}
+#frame_content {margin: 0px 5px;}
+.bottom_box table {width: 100%;}
+.bottom_box th {text-align: center;}
+.datos_generales {border-bottom: 1px #3322ff solid;border-top: 1px #3322ff solid;}
+.datos_generales .fondo {background: #aaaaff;}
+.titulo_azul {background: transparent url('/images/desktop/bottom-box.png') no-repeat 0px -5px;height: 40px;width: 200px;overflow: hidden;padding: 10px 0px 0px 0px;margin: 0;}
+.titulo_aqua {background: transparent url('/images/desktop/bottom-box.png') no-repeat 0px -62px;height: 40px;width: 200px;overflow: hidden;padding: 10px 0px 0px 0px;margin: 0;}
+.titulo_verde {background: transparent url('/images/desktop/bottom-box.png') no-repeat 0px -122px;height: 40px;width: 200px;overflow: hidden;padding: 10px 0px 0px 0px;margin: 0;}
+.reunion {float: left;margin: 0 3px; padding: 3px;}
+.reunion.historial {background: #6B8E23;}
+.reunion.asistencias {background: #FFA500;}
+.reunion.palabra {background: #FF4500;}
+.reunion.observaciones {background: #A0522D;}
+#add_reunion, #add_miembros {float: right; margin-top: 7px; margin-left: 7px;}
+.reunion.historial .titulo, .reunion.asistencias .titulo {float: left;}
+#lista_asistentes {margin: 0px 2px 10px 19px; padding: 0px; display: none;}

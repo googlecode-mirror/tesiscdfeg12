@@ -1,0 +1,74 @@
+sfGuardUser:
+  dario_chuquilla:
+    first_name:     Dario
+    last_name:      Chuquilla Gualpa
+    email_address:  dario.chuquilla@hotmail.com
+    fecha_nac:      '1985-09-15'
+    genero:         2
+    est_civil:      Soltero
+    tipo_discipulo: 2
+    direccion:      Lucha de los Pobres
+    sector_ciudad:  Sur
+    username:       dario.chuquilla
+    password:       '110985.'
+    Groups:         [administradores]
+    is_active:      true
+    is_super_admin: true
+  karina_garcia:
+    first_name:     Karina
+    last_name:      Garcia Garcia
+    email_address:  cielito_eli@hotmail.com
+    fecha_nac:      '1985-04-16'
+    genero:         1
+    est_civil:      Soltero
+    tipo_discipulo: 3
+    direccion:      San Jose de Monjas
+    sector_ciudad:  Centro
+    username:       karina.garcia
+    password:       '12345678'
+    Groups:         [lideres_celula]
+    is_active:      true
+    is_super_admin: true
+  mario_leguisamo:
+    first_name:     Mario
+    last_name:      Leguisamo
+    email_address:  mario_leguisamo@hotmail.com
+    fecha_nac:      '1980-09-16'
+    genero:         2
+    est_civil:      Casado
+    tipo_discipulo: 4
+    direccion:      Balcones de Condado
+    sector_ciudad:  Norte
+    username:       mario.leguisamo
+    password:       12345678
+    is_active:      true
+    Groups:         [lideres_red]
+  eduardo_barros:
+    first_name:     Eduardo
+    last_name:      Barros
+    email_address:  eduardo_barros@hotmail.com
+    fecha_nac:      '1982-09-16'
+    genero:         2
+    est_civil:      Soltero
+    tipo_discipulo: 3
+    direccion:      Chimbacalle
+    sector_ciudad:  Napo
+    username:       eduardo.barros
+    password:       12345678
+    is_active:      true
+    Groups:         [lideres_celula]
+  alex_serrano:
+    first_name:     Alex
+    last_name:      Serrano
+    email_address:  alex_serrano@cdfeg12.com
+    fecha_nac:      '<?php echo rand(1940,1995) ?>-<?php echo rand(1,12) ?>-<?php echo rand(1,28) ?>'
+    genero:         2
+    est_civil:      Casado
+    tipo_discipulo: 4
+    direccion:      'NORTE POR LA OCIDENTAL'
+    sector_ciudad:  Norte
+    username:       'alex.serrano'
+    password:       '12345678'
+    is_active:      true
+    is_super_admin: true
+    Groups:         [lideres_red]

@@ -1,0 +1,12 @@
+#Meta:
+#<?php for($i=0;$i<500;$i++): ?>
+#  meta_prueba_<?php echo $i ?>:
+#    titulo:        Meta <?php echo $i ?> de prueba
+#    fecha_cumplir: '2013-<?php echo rand(1,12) ?>-<?php echo rand(1,28) ?>'
+#    estado:        1
+#    descripcion:   |
+#      Esta es una meta de prueba generada automáticamente.
+#      El indicador se encuentra en la meta generada <?php echo $i ?>
+#      Atentamente Dario Chuquilla
+#    Discipulo:  lider_celula<?php echo rand(0,9) . "\n" ?>
+#<?php endfor; ?>

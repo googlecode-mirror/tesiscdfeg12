@@ -1,0 +1,31 @@
+ActividadSeguimiento:
+  fono_visita:
+    nombre: Fono visita
+    descripcion: |
+      Llamada telefónica que se hace a un nuevo
+      discípulo para realizar el proceso de
+      seguimiento.
+  reunion_informal:
+    nombre: Reunión informal
+    descripcion: |
+      Invitación que el líder hace al nuevo 
+      discípulo para inciar el acercamiento,
+      por ejemplo, inviar a una cafecito.
+  visita_domicilio:
+    nombre: Visita en domicilio
+    descripcion: |
+      Es la visita que el líder hace al nuevo
+      discípulo cono un nivel de acercamiento
+      más elevado.
+  enviado_encuentro:
+    nombre: Enviado a encuentro
+    descripcion: |
+      Cuando se ha enviado a un seguidor al
+      encuentro.
+  consilidado_en_celula:
+    nombre: Consolidado en celula
+    descripcion: |
+      Cuando un Discipulo Nuevo ya ha llegado
+      a ser fiel en la asistencia a la celula
+      y se dice que ya ha sido consolidado.
+      
