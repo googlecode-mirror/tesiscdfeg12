@@ -6,7 +6,7 @@ all:
   envia_mails: false
   max_num_asignados: 12
   digitos_telefono: 9
-  digitos_movil: 9
+  digitos_movil: 10
   digitos_fecha: 10
   caracteres_sector: 50
   caracteres_correo: 80
