@@ -33,7 +33,8 @@ class AsignacionTable extends Doctrine_Table {
                 ->where('as.discipulo_nuevo_id = ?', $id_nuevo)
                 ->andWhere('as.discipulo_lider_id = ?', $id_nuevo);
         $r = $q->execute();
-        return isset($r);
+        $c_r = count($r->getData());
+        return $c_r;
     }
 
 }

@@ -21,10 +21,7 @@ class asignacionActions extends sfActions {
             $asignacion = new Asignacion();
             $lider = Doctrine_Core::getTable('Discipulo')->find($id_lider);
             $discipulo = Doctrine_Core::getTable('Discipulo')->find($lista_nuevos[$i]);
-            if (Doctrine_Core::getTable('Asignacion')->estaAsginado($discipulo->getId(), $lider->getId())) {
-                $flash_tipo = 'error';
-                $flash_msg = 'Ha ocurrido un error al asignar: El discípulo ' . $discipulo . ' ya ha sido asignado al lìder ' . $lider . '.';
-            } else {
+            if (Doctrine_Core::getTable('Asignacion')->estaAsginado($discipulo->getId(), $lider->getId()) == 0) {
                 $actualizacion = $discipulo->actualizaTipo(1);
                 if (sfConfig::get('app_envia_mails')) {
                     $mensaje = Swift_Message::newInstance()
@@ -57,6 +54,9 @@ class asignacionActions extends sfActions {
                     $flash_tipo = 'error';
                     $flash_msg = $valida;
                 }
+            } else {
+                $flash_tipo = 'error';
+                $flash_msg = 'Ha ocurrido un error al asignar: El discípulo ' . $discipulo . ' ya ha sido asignado al lìder ' . $lider . '.';
             }
         }
         $this->getUser()->setFlash($flash_tipo, $flash_msg, false);
