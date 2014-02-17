@@ -1,6 +1,8 @@
 /cache
 /log
 /.settings
+/.project
+/.buildpath
 /nbproject
 /web/uploads/*
 plugins/.channels
