@@ -13,6 +13,10 @@ Asignacion:
     sfGuardUser:        { onDelete: CASCADE, alias: DiscipuloLider, local: discipulo_lider_id, foreign: id, foreignAlias: Lider }
     sfGuardUser:        { onDelete: CASCADE, alias: DiscipuloNuevo, local: discipulo_nuevo_id, foreign: id, foreignAlias: Nuevo }
     Seguimiento:        { onDelete: RESTRICT, foreignAlias: Seguimiento, local: id, foreign: asignacion_id }
+  indexes:
+    Asignacion:
+      fields:           [discipulo_lider_id, discipulo_nuevo_id]
+      type:             unique
 Asistencia:
   actAs: [ Timestampable: ~ ]
   columns:

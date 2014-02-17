@@ -48,6 +48,16 @@ abstract class BaseAsignacion extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
+
+
+        $this->index('Asignacion', array(
+             'fields' => 
+             array(
+              0 => 'discipulo_lider_id',
+              1 => 'discipulo_nuevo_id',
+             ),
+             'type' => 'unique',
+             ));
     }
 
     public function setUp()

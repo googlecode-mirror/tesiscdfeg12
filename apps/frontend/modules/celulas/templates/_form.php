@@ -43,10 +43,10 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function() {
         var id_lider = $('#celula_discipulo_lider_id').val();
-        $('#lider_'+id_lider).attr('checked', 'checked');
-        $(".lider_id").live('click',function(){
+        $('#lider_' + id_lider).attr('checked', 'checked');
+        $(".lider_id").live('click', function() {
             var lider_id = $(this).val();
             var lider_nombre = $(this).parent('li').text();
             $('#celula_discipulo_lider_id').val(lider_id);

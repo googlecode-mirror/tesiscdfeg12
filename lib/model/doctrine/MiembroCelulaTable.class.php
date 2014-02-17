@@ -27,6 +27,7 @@ class MiembroCelulaTable extends Doctrine_Table {
         $q->select('mc.*');
         $q->from('miembro_celula mc inner join celula c on c.id = mc.celula_id inner join sf_guard_user d on mc.discipulo_id = d.id');
         $q->where('c.discipulo_lider_id = ?', $id_lider);
+//        $q->andWhere('c.discipulo_lider_id NOT IN (SELECT c.discipulo_lider_id FROM celula AS c)');
         $q->addComponent('mc', 'MiembroCelula mc');
         return $q->execute();
     }
@@ -41,7 +42,7 @@ class MiembroCelulaTable extends Doctrine_Table {
         $q->select('d.*');
         $q->from('miembro_celula mc inner join celula c on c.id = mc.celula_id inner join sf_guard_user d on mc.discipulo_id = d.id');
         $q->where('c.discipulo_lider_id = ?', $id_lider);
-        $q->andWhere('d.tipo_discipulo > ?', 2);
+//        $q->andWhere('d.tipo_discipulo > ?', 2);
         $q->addComponent('d', 'Discipulo d');
         return $q->execute();
     }

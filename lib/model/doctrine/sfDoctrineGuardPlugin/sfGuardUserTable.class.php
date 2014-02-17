@@ -57,4 +57,15 @@ class sfGuardUserTable extends PluginsfGuardUserTable
     	return $q->execute();
     }
     
+    /**
+     * Obtienen la lista de discípulos en base del género enviado
+     * @param integer $idGenero El identificador del género
+     * @return Doctrine_Collection
+     */
+    public function getDiscipulosRedPorGenero($idGenero){
+    	$q = $this->createQuery('u')
+    	->where('u.genero = ?', $idGenero);
+    	return $q->execute();
+    }
+    
 }

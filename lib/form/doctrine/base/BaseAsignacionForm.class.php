@@ -28,6 +28,10 @@ abstract class BaseAsignacionForm extends BaseFormDoctrine
       'discipulo_nuevo_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('DiscipuloNuevo'))),
     ));
 
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Asignacion', 'column' => array('discipulo_lider_id', 'discipulo_nuevo_id')))
+    );
+
     $this->widgetSchema->setNameFormat('asignacion[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

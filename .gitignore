@@ -2,6 +2,7 @@
 /log
 /.settings
 /nbproject
+/web/uploads/*
 plugins/.channels
 plugins/.depdb
 plugins/.depdblock

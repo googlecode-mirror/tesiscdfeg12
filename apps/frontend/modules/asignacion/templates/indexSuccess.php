@@ -3,7 +3,7 @@
 
 <ul class="css-tabs">
     <li><a href="#">Nuevos</a></li>
-    <li><a href="#">L&iacute;deres</a></li>
+    <li><a href="#">Discípulos</a></li>
     <li><a href="#">Asignar</a></li>
 </ul>
 <div class="css-panes">
@@ -23,20 +23,22 @@
             </thead>
             <tbody>
                 <?php foreach ($nuevos as $nuevo): ?>
-                    <tr>
-                        <td class="select_check"><input type="checkbox" class="chbox_elemento" name="nuevo" value="<?php echo $nuevo->getId() ?>" /></td>
-                        <td>
-                            <a href="<?php echo url_for('@monitor?id_discipulo=' . $nuevo->getId()) ?>" class="lnk_nuevo<?php echo $nuevo->getId() ?>">
-                                <?php echo $nuevo->getFirstName() . " " . $nuevo->getLastName() ?>
-                            </a>
-                        </td>
-                        <td><?php echo $nuevo->calculaEdad() ?></td>
-                        <td style="text-align: center;"><?php echo $nuevo->getEstCivil() ?></td>
-                        <td><?php echo $nuevo->getDireccion() ?></td>
-                        <td><?php echo $nuevo->getTelefono() ?></td>
-                        <td><?php echo $nuevo->getMovil() ?></td>
-                        <td><?php echo $nuevo->getSectorCiudad() ?></td>
-                    </tr>
+                    <?php if ($nuevo->getId() != $current_user->getUserId()) : ?>
+                        <tr>
+                            <td class="select_check"><input type="checkbox" class="chbox_elemento" name="nuevo" value="<?php echo $nuevo->getId() ?>" /></td>
+                            <td>
+                                <a href="<?php echo url_for('@monitor?id_discipulo=' . $nuevo->getId()) ?>" class="lnk_nuevo<?php echo $nuevo->getId() ?>">
+                                    <?php echo $nuevo->getFirstName() . " " . $nuevo->getLastName() ?>
+                                </a>
+                            </td>
+                            <td><?php echo $nuevo->calculaEdad() ?></td>
+                            <td style="text-align: center;"><?php echo $nuevo->getEstCivil() ?></td>
+                            <td><?php echo $nuevo->getDireccion() ?></td>
+                            <td><?php echo $nuevo->getTelefono() ?></td>
+                            <td><?php echo $nuevo->getMovil() ?></td>
+                            <td><?php echo $nuevo->getSectorCiudad() ?></td>
+                        </tr>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </tbody>
         </table>
@@ -58,7 +60,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($lideres as $lider): ?>
+                <?php foreach ($discipulos as $lider): ?>
                     <tr>
                         <td class="select_check"><input type="radio" class="radio_elemento" name="lider" value="<?php echo $lider->getId() ?>"/></td>
                         <td>
@@ -90,22 +92,22 @@
             </ul>
         </div>
         <script type="text/javascript">
-            $(document).ready(function(){
+            $(document).ready(function() {
                 var id_lider;
                 var ids_nuevos = new Array();
                 /**
                  * Generador de Tabs
                  */
-                $('ul.css-tabs').tabs('div.css-panes > div', function(event, index){
+                $('ul.css-tabs').tabs('div.css-panes > div', function(event, index) {
                     switch (index) {
                         case 1:
-                            if(ids_nuevos.length <=0) {
+                            if (ids_nuevos.length <= 0) {
                                 apprise('Seleccione al menos un Discípulo nuevo de la lista', {textOk: 'Aceptar'});
                                 return false;
                             }
                             break;
                         case 2:
-                            if(!id_lider) {
+                            if (!id_lider) {
                                 apprise('Seleccione al menos un Líder de la lista', {textOk: 'Aceptar'});
                                 return false;
                             }
@@ -113,31 +115,31 @@
                     }
 
                 });
-                $('.chbox_elemento').live('change',function(){
+                $('.chbox_elemento').live('change', function() {
                     var id = $(this).attr('value');
-                    if($(this).attr('checked') == 'checked'){
+                    if ($(this).attr('checked') == 'checked') {
                         $('#nombre_nuevo_selected').append('<li class="nuevo_selected' + id + '">' + $('.lnk_nuevo' + id).text() + '</li>');
                         ids_nuevos.push(id);
                     } else {
                         $('.nuevo_selected' + id).remove();
-                        for(i=0;i < ids_nuevos.length;i++){
-                            if(ids_nuevos[i] == id){
+                        for (i = 0; i < ids_nuevos.length; i++) {
+                            if (ids_nuevos[i] == id) {
                                 ids_nuevos.splice(i, 1);
                             }
                         }
                     }
                 });
-                $('.radio_elemento').live('click',function(){
+                $('.radio_elemento').live('click', function() {
                     var id = $(this).attr('value');
                     $('#nombre_lider_selected').text($('.lnk_lider' + id).text());
                     id_lider = id;
                 });
-                $('#btn_asignar').live('click',function(){
-                    if(id_lider && ids_nuevos.length > 0){
+                $('#btn_asignar').live('click', function() {
+                    if (id_lider && ids_nuevos.length > 0) {
                         query_nuevos = ids_nuevos.join('-');
-                        appConfirma('Está seguro de asignar', '<?php echo url_for('@asignar_nuevos?cadena_ids=') ?>' + id_lider +'|' + query_nuevos);
+                        appConfirma('Está seguro de asignar', '<?php echo url_for('@asignar_nuevos?cadena_ids=') ?>' + id_lider + '|' + query_nuevos);
                     } else {
-                        apprise('Seleccione Nuevos y un Líder para asignar',{'animate':true});
+                        apprise('Seleccione Nuevos y un Líder para asignar', {'animate': true});
                     }
                 });
             });

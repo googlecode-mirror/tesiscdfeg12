@@ -1,74 +1,74 @@
 sfGuardUser:
   dario_chuquilla:
-    first_name:     Dario
+    first_name:     Dario Javier
     last_name:      Chuquilla Gualpa
     email_address:  dario.chuquilla@hotmail.com
-    fecha_nac:      '1985-09-15'
+    fecha_nac:      '1985-09-11'
     genero:         2
-    est_civil:      Soltero
-    tipo_discipulo: 2
-    direccion:      Lucha de los Pobres
-    sector_ciudad:  Sur
+    est_civil:      Casado
+    tipo_discipulo: 0
+    direccion:      'Av. 21 de Agosto E3-200 y Pasaje J'
+    sector_ciudad:  Lucha de los Pobres
     username:       dario.chuquilla
     password:       '110985.'
     Groups:         [administradores]
     is_active:      true
     is_super_admin: true
   karina_garcia:
-    first_name:     Karina
+    first_name:     Karina Elisabeth
     last_name:      Garcia Garcia
     email_address:  cielito_eli@hotmail.com
     fecha_nac:      '1985-04-16'
     genero:         1
-    est_civil:      Soltero
-    tipo_discipulo: 3
-    direccion:      San Jose de Monjas
-    sector_ciudad:  Centro
+    est_civil:      Casado
+    tipo_discipulo: 0
+    direccion:      Av. 21 de Agosto E3-200 y Pasaje J
+    sector_ciudad:  Lucha de los Pobres
     username:       karina.garcia
-    password:       '12345678'
+    password:       'test123'
     Groups:         [lideres_celula]
     is_active:      true
     is_super_admin: true
   mario_leguisamo:
     first_name:     Mario
     last_name:      Leguisamo
-    email_address:  mario_leguisamo@hotmail.com
-    fecha_nac:      '1980-09-16'
+    email_address:  mario.leguizamo@outlook.com
+    fecha_nac:      '1978-10-23'
     genero:         2
     est_civil:      Casado
-    tipo_discipulo: 4
-    direccion:      Balcones de Condado
-    sector_ciudad:  Norte
+    tipo_discipulo: 0
+    direccion:      Urbanizacion Caminos del Balcon Edf Camila Dto 1B
+    sector_ciudad:  Ponceano
     username:       mario.leguisamo
-    password:       12345678
+    password:       'test123'
     is_active:      true
-    Groups:         [lideres_red]
+    Groups:         [nuevos]
   eduardo_barros:
     first_name:     Eduardo
-    last_name:      Barros
+    last_name:      Barros Bravo
     email_address:  eduardo_barros@hotmail.com
-    fecha_nac:      '1982-09-16'
+    fecha_nac:      '1982-08-26'
     genero:         2
     est_civil:      Soltero
-    tipo_discipulo: 3
-    direccion:      Chimbacalle
-    sector_ciudad:  Napo
+    tipo_discipulo: 0
+    direccion:      Av Napo S836 y Av 1ero de Mayo Esq
+    sector_ciudad:  Villa Flora
     username:       eduardo.barros
-    password:       12345678
+    password:       'test123'
     is_active:      true
-    Groups:         [lideres_celula]
+    Groups:         [nuevos]
   alex_serrano:
     first_name:     Alex
     last_name:      Serrano
     email_address:  alex_serrano@cdfeg12.com
-    fecha_nac:      '<?php echo rand(1940,1995) ?>-<?php echo rand(1,12) ?>-<?php echo rand(1,28) ?>'
+    fecha_nac:      '<?php echo rand(1970,1980) ?>-<?php echo rand(1,12) ?>-<?php echo rand(1,28) ?>'
     genero:         2
     est_civil:      Casado
     tipo_discipulo: 4
     direccion:      'NORTE POR LA OCIDENTAL'
     sector_ciudad:  Norte
     username:       'alex.serrano'
-    password:       '12345678'
+    password:       'test123'
     is_active:      true
     is_super_admin: true
-    Groups:         [lideres_red]
+    Groups:         [nuevos]

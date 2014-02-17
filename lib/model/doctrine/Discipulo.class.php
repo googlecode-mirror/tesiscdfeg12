@@ -41,9 +41,12 @@ class Discipulo extends sfGuardUser {
             $this->setIsActive(true);
         }
         $discipulo_id = $this->getId();
+        //die("====== DISCIPULO_ID " . var_export($discipulo_id, true));
+        //die("====== TIPO_DISCIPULO " . var_export($tipo_discipulo, true));
         switch ($tipo_discipulo) {
             case 0:
                 $grupo_disicpulo = Doctrine_Core::getTable('sfGuardUserGroup')->find(array($discipulo_id, 1));
+                //die("====== GRUPO_DISICPULO " . var_export($grupo_disicpulo, true));
                 if ($grupo_disicpulo) {
                     $grupo_disicpulo->setGroupId(1);
                 } else {
@@ -52,30 +55,34 @@ class Discipulo extends sfGuardUser {
                 break;
             case 1:
                 $grupo_disicpulo = Doctrine_Core::getTable('sfGuardUserGroup')->find(array($discipulo_id, 1));
+                //die("====== GRUPO_DISICPULO 1 " . var_export($grupo_disicpulo, true));
                 if ($grupo_disicpulo) {
                     $grupo_disicpulo->setGroupId(1);
                 } else {
-                    return "el discípulo no tiene asignado un grupo para actualizar";
+                    return "el discípulo $this no tiene asignado un grupo para actualizar";
                 }
                 break;
             case 2:
                 $grupo_disicpulo = Doctrine_Core::getTable('sfGuardUserGroup')->find(array($discipulo_id, 1));
+                //die("====== GRUPO_DISICPULO 2 " . var_export($grupo_disicpulo, true));
                 if ($grupo_disicpulo) {
                     $grupo_disicpulo->setGroupId(2);
                 } else {
-                    return "el discípulo no tiene asignado un grupo para actualizar";
+                    return "el discípulo $this no tiene asignado un grupo para actualizar";
                 }
                 break;
             case 3:
                 $grupo_disicpulo = Doctrine_Core::getTable('sfGuardUserGroup')->find(array($discipulo_id, 2));
+                //die("====== GRUPO_DISICPULO 4 " . var_export($grupo_disicpulo, true));
                 if ($grupo_disicpulo) {
                     $grupo_disicpulo->setGroupId(3);
                 } else {
-                    return "el discípulo no tiene asignado un grupo para actualizar";
+                    return "el discípulo $this no tiene asignado un grupo para actualizar";
                 }
                 break;
             case 4:
                 $grupo_disicpulo = Doctrine_Core::getTable('sfGuardUserGroup')->find(array($discipulo_id, 3));
+                //die("====== GRUPO_DISICPULO 4 " . var_export($grupo_disicpulo, true));
                 if ($grupo_disicpulo) {
                     $grupo_disicpulo->setGroupId(4);
                 } else {
@@ -84,10 +91,11 @@ class Discipulo extends sfGuardUser {
                 break;
             default:
                 $grupo_disicpulo = Doctrine_Core::getTable('sfGuardUserGroup')->find(array($discipulo_id, 1));
+                //die("====== GRUPO_DISICPULO def " . var_export($grupo_disicpulo, true));
                 if ($grupo_disicpulo) {
                     $grupo_disicpulo->setGroupId(1);
                 } else {
-                    return "el discípulo no tiene asignado un grupo para actualizar";
+                    return "el discípulo $this no tiene asignado un grupo para actualizar";
                 }
                 break;
         }

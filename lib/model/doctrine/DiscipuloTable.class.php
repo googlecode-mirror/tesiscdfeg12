@@ -83,7 +83,19 @@ class DiscipuloTable extends sfGuardUserTable {
      */
     public function listaPorTipo($tipo, $genero) {
         $q = $this->createQuery('d')
-                ->where('d.tipo_discipulo = ?', $tipo)
+//                ->where('d.tipo_discipulo = ?', $tipo)
+                ->andWhere('d.genero = ?', $genero);
+        return $q->execute();
+    }
+    
+    /**
+     * Obtiene todos los discípulos que no tengan célula
+     * @param type $genero
+     * @return type
+     */
+    public function getDiscipulosSinCelula($genero){
+        $q = $this->createQuery('d')
+                ->where('d.id NOT IN (SELECT m.discipulo_id FROM MiembroCelula AS m) OR d.id NOT IN (SELECT a.discipulo_nuevo_id FROM Asignacion AS a)')
                 ->andWhere('d.genero = ?', $genero);
         return $q->execute();
     }
