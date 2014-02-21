@@ -3,7 +3,7 @@
 
 # default values
 all:
-  envia_mails: false
+  envia_mails: true
   max_num_asignados: 12
   digitos_telefono: 9
   digitos_movil: 10
