@@ -15,7 +15,7 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'first_name'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'last_name'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'email_address'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'email_address'     => new sfWidgetFormFilterInput(),
       'fecha_nac'         => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'est_civil'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'fotografia'        => new sfWidgetFormFilterInput(),
@@ -24,7 +24,7 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
       'codigo_lider_cdfe' => new sfWidgetFormFilterInput(),
       'direccion'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'telefono'          => new sfWidgetFormFilterInput(),
-      'movil'             => new sfWidgetFormFilterInput(),
+      'movil'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'sector_ciudad'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'username'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'algorithm'         => new sfWidgetFormFilterInput(array('with_empty' => false)),

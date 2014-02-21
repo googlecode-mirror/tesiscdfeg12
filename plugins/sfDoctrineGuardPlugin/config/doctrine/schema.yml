@@ -61,7 +61,7 @@ sfGuardUser:
       notnull: true
     email_address:
       type: string(255)
-      notnull: true
+      notnull: false
       unique: true
     fecha_nac:
       type: timestamp
@@ -92,7 +92,7 @@ sfGuardUser:
     movil:
       type: string(12)
       fixed: true
-      notnull: false
+      notnull: true
     sector_ciudad:
       type: string(100)
       notnull: true
