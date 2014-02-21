@@ -88,7 +88,7 @@ class sfGuardUserAdminForm extends BasesfGuardUserAdminForm {
             'min_length' => '"%value%" muy pequeño, mínimo %min_length% caracteres',
             'max_length' => '"%value%" muy largo, máximo %max_length% caracteres')
         );
-        $this->validatorSchema['email_address'] = new sfValidatorAnd(array(
+        $this->validatorSchema['email_address'] = new sfValidator(array(
             $this->validatorSchema['email_address'],
             new sfValidatorEmail(
                     array(
@@ -114,7 +114,7 @@ class sfGuardUserAdminForm extends BasesfGuardUserAdminForm {
         $this->validatorSchema['movil'] = new sfValidatorNumber(
                 array('required' => false), array('invalid' => '"%value%" no es un número')
         );
-        $this->validatorSchema['movil'] = new sfValidatorAnd(array(
+        $this->validatorSchema['movil'] = new sfValidator(array(
             $this->validatorSchema['movil'],
             new sfValidatorString(
                     array(
