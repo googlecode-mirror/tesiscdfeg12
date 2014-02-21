@@ -27,4 +27,12 @@ class EscuelaTable extends Doctrine_Table {
         return $q->execute();
     }
 
+    public function getElvByLiderId($liderId) {
+        $q = $this->createQuery('a')
+                ->innerJoin('a.Discipulo u on a.discipulo_id = u.id')
+                ->where('u.id = ?', $liderId)
+                ->orWhere('s.id in(select mc.discipulo_id from miembro_celula mc inner join celula as ce ON ce.id = mc.celula_id where ce.discipulo_lider_id = ?)', $liderId);
+        return $q->execute();
+    }
+
 }

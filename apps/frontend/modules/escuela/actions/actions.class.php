@@ -11,9 +11,7 @@
 class escuelaActions extends sfActions {
 
     public function executeIndex(sfWebRequest $request) {
-        $this->escuelas = Doctrine_Core::getTable('Escuela')
-                ->createQuery('a')
-                ->execute();
+        $this->escuelas = Doctrine_Core::getTable('Escuela')->getElvByLiderId($this->getUser()->getUserId());
     }
 
     public function executeShow(sfWebRequest $request) {
