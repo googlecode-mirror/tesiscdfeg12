@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main.css, demo_table_jui.css, jquery-ui-1.8.16.custom.css, apprise.min.css]
 
-  javascripts:    [jquery-1.6.2.min.js, apprise-1.5.min.js, ui.core.js, jquery.tools.min.js, jquery.dataTables.js, cdfeg12_interact.js]
+  javascripts:    [jquery-1.6.2.min.js,apprise-1.5.min.js,ui.core.js,jquery.tools.min.js,jquery.ui.datepicker-es.js,jquery.dataTables.js,cdfeg12_interact.js]
 
   has_layout:     true
   layout:         layout

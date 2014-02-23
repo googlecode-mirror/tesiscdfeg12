@@ -160,13 +160,14 @@ $(document).ready(function() {
     /**
      *Generación de datepicker
      */
-    $('#meta_fecha_cumplir').datepicker();
-    $('#celula_fecha').datepicker();
-    $('#evento_fecha_hora').datepicker();
-    $('#seguimiento_fecha').datepicker();
-    $('#escuela_fecha_ingreso').datepicker();
-    $('#reunion_fecha').datepicker();
-    //    $('#sf_guard_user_fecha_nac').datepicker();
+    $.datepicker.setDefaults($.datepicker.regional["es"]);
+    $('#meta_fecha_cumplir').datepicker({ dateFormat: 'mm/dd/yy' });
+    $('#celula_fecha').datepicker({ dateFormat: 'mm/dd/yy' });
+    $('#evento_fecha_hora').datepicker({ dateFormat: 'mm/dd/yy' });
+    $('#seguimiento_fecha').datepicker({ dateFormat: 'mm/dd/yy' });
+    $('#escuela_fecha_ingreso').datepicker({ dateFormat: 'mm/dd/yy' });
+    $('#reunion_fecha').datepicker({ dateFormat: 'mm/dd/yy' });
+    //    $('#sf_guard_user_fecha_nac').datepicker({ dateFormat: 'mm/dd/yy' });
     /**
      *Generación de link confirmar
      */
