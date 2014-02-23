@@ -11,6 +11,8 @@ class BasesfGuardRegisterActions extends sfActions {
 		$this->forward404Unless($sf_guard_user = Doctrine_Core::getTable('sfGuardUser')->find(array($this->getUser()->getUserId())), sprintf('Object sf_guard_user does not exist (%s).', $this->getUser()->getUserId()));
 		$this->form = new sfGuardRegisterForm(array(),array('currentUser' => $sf_guard_user));
 		$this->form->setDefault('genero', $sf_guard_user->getGenero());
+		$this->form->setDefault('email_address', "no_mail" . rand(1, 9999) . "@cdfeg12.com");
+		$this->form->setDefault('movil', str_repeat(rand(0, 9), sfConfig::get('app_digitos_telefono') + 1));
 		$grupo = new sfGuardUserGroup();
 		if ($request->isMethod('post')) {
 			$this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));

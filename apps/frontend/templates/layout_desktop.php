@@ -90,7 +90,7 @@
                     Herramientas
                     <ul class="menu_group">
                         <li class="menu_link" onclick="crearVentana('Cumpleaneros','<?php echo url_for('@cumpleaneros') ?>','Cumeplañeros del mes');">
-                            <?php echo image_tag('desktop/dock/metas.png', array('alt' => 'Cumpleañeros', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
+                            <?php echo image_tag('desktop/dock/birthday.png', array('alt' => 'Cumpleañeros', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                             Cumpleañeros
                         </li>
                         <li class="menu_link" onclick="crearVentana('Metas','<?php echo url_for('meta') ?>','Administración de metas');">
