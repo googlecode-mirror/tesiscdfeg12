@@ -44,6 +44,54 @@
         <source>Add new assigned, use this to add a new assigned and theach them about the power of Jesus.</source>
         <target>Agregar nuevo asignado, usa este enlace para agregar un nuevo asignado y enseñarles acerca del poder de Jesús.</target>
       </trans-unit>
+      <trans-unit id="11">
+        <source>January</source>
+        <target>Enero</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Feruary</source>
+        <target>Febrero</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>March</source>
+        <target>Marzo</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>April</source>
+        <target>Abril</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>June</source>
+        <target>Junio</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>July</source>
+        <target>Julio</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>August</source>
+        <target>Agosto</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>September</source>
+        <target>Septiembre</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>October</source>
+        <target>Octubre</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>November</source>
+        <target>Nobiembre</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Dicember</source>
+        <target>Diciembre</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>May</source>
+        <target>Mayo</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

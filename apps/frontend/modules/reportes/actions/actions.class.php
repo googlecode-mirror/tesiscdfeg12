@@ -22,6 +22,10 @@ class reportesActions extends sfActions {
             $countDiscipulos[$tipo] = Doctrine_Core::getTable('Discipulo')->getCountPorTipo($key, $this->getUser()->getUserGenero());
         }
         $this->countDiscipulos = $countDiscipulos;
+        $this->actividades = Doctrine_Core::getTable('ActividadSeguimiento')->createQuery('a')
+                ->where('a.id >= 4')
+                ->execute();
+        $this->fechas = Doctrine_Core::getTable('Seguimiento')->getYearsMonths();
     }
 
 }

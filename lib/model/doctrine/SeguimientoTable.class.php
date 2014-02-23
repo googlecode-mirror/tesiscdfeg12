@@ -30,4 +30,27 @@ class SeguimientoTable extends Doctrine_Table {
         return $q->execute();
     }
 
+    public function getYearsMonths() {
+        $q = $this->createQuery('s')
+                ->select('DISTINCT year(s.fecha) year, monthname(s.fecha) month')
+                ->orderBy('s.fecha')
+                ->setHydrationMode(Doctrine::HYDRATE_ARRAY);
+        $result = $q->execute();
+        return $result;
+    }
+
+    public function countActividadesFecha($month, $year) {
+        $q = $this->createQuery('s')
+                ->innerJoin('s.ActividadSeguimiento a')
+                ->select('a.nombre, s.actividad_seguimiento_id, count(s.actividad_seguimiento_id) as numero')
+                ->where('monthname(s.fecha) = ?', $month)
+                ->andWhere('year(s.fecha) = ?', $year)
+                ->andWhere('s.actividad_seguimiento_id >= ?', 4)
+                ->groupBy('s.actividad_seguimiento_id')
+                ->orderBy('s.actividad_seguimiento_id')
+                ->setHydrationMode(Doctrine::HYDRATE_ARRAY);
+        $result = $q->execute();
+        return $result;
+    }
+
 }
