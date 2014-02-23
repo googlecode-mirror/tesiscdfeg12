@@ -8,13 +8,13 @@ default:
   metas:
     #title:        symfony project
     #description:  symfony project
-    #keywords:     symfony, project
+    #keywords:     symfony,  project
     #language:     en
-    #robots:       index, follow
+    #robots:       index,  follow
 
-  stylesheets:    [main.css,demo_table_jui.css,jquery-ui-1.8.16.custom.css,apprise.min.css]
+  stylesheets:    [main.css, demo_table_jui.css, jquery-ui-1.8.16.custom.css, apprise.min.css]
 
-  javascripts:    [jquery-1.6.2.min.js,apprise-1.5.min.js,ui.core.js,jquery.tools.min.js,jquery.dataTables.js,cdfeg12_interact.js]
+  javascripts:    [jquery-1.6.2.min.js, apprise-1.5.min.js, ui.core.js, jquery.tools.min.js, jquery.dataTables.js, cdfeg12_interact.js]
 
   has_layout:     true
   layout:         layout

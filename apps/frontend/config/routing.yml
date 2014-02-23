@@ -1,6 +1,9 @@
 monitor:
   url:   /monitor/:id_discipulo
   param: { module: monitor, action: index }
+reportes:
+  url:   /reportes/
+  param: { module: reportes, action: index }
 discipulos:
   class: sfDoctrineRouteCollection
   options:

@@ -59,6 +59,7 @@ class DiscipuloTable extends sfGuardUserTable {
     public static function getGeneroId() {
         return self::$genero_id;
     }
+
     public static function getCivil() {
         return self::$civil;
     }
@@ -88,12 +89,22 @@ class DiscipuloTable extends sfGuardUserTable {
         return $q->execute();
     }
     
+    public function getCountPorTipo($tipo, $genero) {
+        $q = $this->createQuery('d')
+                ->select('count(d.id) as numero')
+                ->where('d.tipo_discipulo = ?', $tipo)
+                ->andWhere('d.genero = ?', $genero)
+                ->setHydrationMode(Doctrine::HYDRATE_ARRAY);
+        $result = $q->execute();
+        return $result;
+    }
+
     /**
      * Obtiene todos los discípulos que no tengan célula
      * @param type $genero
      * @return type
      */
-    public function getDiscipulosSinCelula($genero){
+    public function getDiscipulosSinCelula() {
         $q = $this->createQuery('d')
                 ->where('d.id NOT IN (SELECT m.discipulo_id FROM MiembroCelula AS m) OR d.id NOT IN (SELECT a.discipulo_nuevo_id FROM Asignacion AS a)')
                 ->andWhere('d.genero = ?', $genero);

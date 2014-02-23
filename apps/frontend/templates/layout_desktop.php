@@ -11,15 +11,15 @@
         <script src="js/dashboard.js" type="text/javascript"></script>
         <script src="js/jquery.jqDock.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-            $(document).ready(function(){
-                $('.menu_link').mouseover(function(){
+            $(document).ready(function() {
+                $('.menu_link').mouseover(function() {
                     $(this).addClass('menu_link_over');
                 });
-                $('.menu_link').mouseout(function(){
+                $('.menu_link').mouseout(function() {
                     $(this).removeClass('menu_link_over');
                 });
-                $('.menu_link').click(function(){
-                    $('.menu_link').each(function(){
+                $('.menu_link').click(function() {
+                    $('.menu_link').each(function() {
                         $(this).removeClass('menu_link_selected');
                     });
                     $(this).addClass('menu_link_selected');
@@ -45,7 +45,7 @@
             <div class="menu_container">
                 Monitor
                 <ul class="menu_group">
-                    <li class="menu_link" onclick="crearVentana('monitor','<?php echo url_for('@monitor?id_discipulo=0') ?>','Información general');">
+                    <li class="menu_link" onclick="crearVentana('monitor', '<?php echo url_for('@monitor?id_discipulo=0') ?>', 'Información general');">
                         <?php echo image_tag('desktop/dock/cuenta.png', array('alt' => 'mis datos', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                         Ver mis datos
                     </li>
@@ -55,7 +55,7 @@
                 <div class="menu_container">
                     Administrar usuarios
                     <ul class="menu_group">
-                        <li class="menu_link" onclick="crearVentana('Usuarios','<?php echo url_for('discipulos') ?>','Usuarios')">
+                        <li class="menu_link" onclick="crearVentana('Usuarios', '<?php echo url_for('discipulos') ?>', 'Usuarios')">
                             <?php echo image_tag('desktop/dock/discipulo.png', array('alt' => 'seguidores', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                             Disc&iacute;pulos
                         </li>
@@ -66,19 +66,19 @@
                 <div class="menu_container">
                     L&iacute;deres
                     <ul class="menu_group">
-                        <li class="menu_link" onclick="crearVentana('Celulas','<?php echo url_for('celulas') ?>','Administración de células');">
+                        <li class="menu_link" onclick="crearVentana('Celulas', '<?php echo url_for('celulas') ?>', 'Administración de células');">
                             <?php echo image_tag('desktop/dock/celulas.png', array('alt' => 'células', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                             C&eacute;lulas
                         </li>
-                        <li class="menu_link" onclick="crearVentana('Asignacion','<?php echo url_for('asignacion') ?>','Asignación de nuevos');">
+                        <li class="menu_link" onclick="crearVentana('Asignacion', '<?php echo url_for('asignacion') ?>', 'Asignación de nuevos');">
                             <?php echo image_tag('desktop/dock/asignar.png', array('alt' => 'asignación', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                             Asignaci&oacute;n
                         </li>
-                        <li class="menu_link" onclick="crearVentana('Seguimiento','<?php echo url_for('seguimiento') ?>','Seguimiento de nuevos');">
+                        <li class="menu_link" onclick="crearVentana('Seguimiento', '<?php echo url_for('seguimiento') ?>', 'Seguimiento de nuevos');">
                             <?php echo image_tag('desktop/dock/seguimiento.png', array('alt' => 'seguimiento', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                             Seguimiento
                         </li>
-                        <li class="menu_link" onclick="crearVentana('Seguidores','<?php echo url_for('seguidores') ?>','Miembros de células');">
+                        <li class="menu_link" onclick="crearVentana('Seguidores', '<?php echo url_for('seguidores') ?>', 'Miembros de células');">
                             <?php echo image_tag('desktop/dock/seguidores.png', array('alt' => 'seguidores', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                             Seguidores
                         </li>
@@ -89,20 +89,24 @@
                 <div class="menu_container">
                     Herramientas
                     <ul class="menu_group">
-                        <li class="menu_link" onclick="crearVentana('Cumpleaneros','<?php echo url_for('@cumpleaneros') ?>','Cumeplañeros del mes');">
+                        <li class="menu_link" onclick="crearVentana('Cumpleaneros', '<?php echo url_for('@cumpleaneros') ?>', 'Cumeplañeros del mes');">
                             <?php echo image_tag('desktop/dock/birthday.png', array('alt' => 'Cumpleañeros', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                             Cumpleañeros
                         </li>
-                        <li class="menu_link" onclick="crearVentana('Metas','<?php echo url_for('meta') ?>','Administración de metas');">
+                        <li class="menu_link" onclick="crearVentana('Metas', '<?php echo url_for('meta') ?>', 'Administración de metas');">
                             <?php echo image_tag('desktop/dock/metas.png', array('alt' => 'metas', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                             Metas
                         </li>
                         <?php if ($sf_user->hasCredential('Lider de red') or $sf_user->hasCredential('Lider de celula') or !$sf_user->hasCredential('Discipulo')): ?>
-                            <li class="menu_link" onclick="crearVentana('Escuela','<?php echo url_for('escuela') ?>','Escuela de líderes');">
+                            <li class="menu_link" onclick="crearVentana('Escuela', '<?php echo url_for('escuela') ?>', 'Escuela de líderes');">
                                 <?php echo image_tag('desktop/dock/elv.png', array('alt' => 'escuela', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
                                 ELV
                             </li>
                         <?php endif; ?>
+                        <li class="menu_link" onclick="crearVentana('Reportes', '<?php echo url_for('reportes') ?>', 'Reportes');">
+                            <?php echo image_tag('desktop/dock/elv.png', array('alt' => 'escuela', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
+                            Reportes
+                        </li>
                     </ul>
                 </div>
             <?php endif; ?>
