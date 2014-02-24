@@ -27,6 +27,15 @@ class ReunionForm extends BaseReunionForm {
         $this->validatorSchema['asistencias'] = new sfValidatorString(
                 array('required' => true)
         );
+        $this->validatorSchema->setPostValidator(
+                new sfValidatorDoctrineUnique(
+                array(
+            'model' => 'Reunion',
+            'column' => array('fecha', 'celula_id'),
+                ), array(
+            'invalid' => 'Ya se ha creado una reunión similar'
+                ))
+        );
         #Ayudas
         $this->widgetSchema->setHelps(array(
             'fecha' => 'Defina la fecha en la que inició la célula'
