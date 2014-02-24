@@ -23,9 +23,8 @@ class AsignacionTable extends Doctrine_Table {
     public function getAsignadosPorLider($id_lider) {
         $q = $this->createQuery('as')
                 ->innerJoin('as.DiscipuloNuevo d')
-                ->leftJoin('d.MiembroCelula mc')
                 ->where('as.discipulo_lider_id = ?', $id_lider)
-                ->andWhere('mc.discipulo_id <> d.id');
+                ->andWhere('d.id NOT IN (SELECT m.discipulo_id FROM MiembroCelula AS m)');
 //                ->andWhere('d.tipo_discipulo = 1');
         return $q->execute();
     }

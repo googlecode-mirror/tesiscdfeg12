@@ -31,7 +31,7 @@ class seguimientoActions extends sfActions {
         $this->forward404Unless($request->isMethod(sfRequest::POST));
 
         $this->form = new SeguimientoForm();
-        $this->asignados = Doctrine_Core::getTable('Asignacion')->getAsignadosPorLider(106);
+        $this->asignados = Doctrine_Core::getTable('Asignacion')->getAsignadosPorLider($this->getUser()->getUserId());
         $this->processForm($request, $this->form);
 
         $this->setTemplate('new');
