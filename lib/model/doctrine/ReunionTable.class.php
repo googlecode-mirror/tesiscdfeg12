@@ -26,6 +26,7 @@ class ReunionTable extends Doctrine_Table {
         $q = $this->createQuery('r')
                 ->select('r.fecha')
                 ->where('r.celula_id = ?', $celula_id)
+                ->orderBy('r.fecha ASC')
                 ->distinct();
         return $q->execute();
     }

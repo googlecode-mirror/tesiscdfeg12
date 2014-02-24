@@ -110,6 +110,7 @@ Reunion:
     celula_id:          { type: integer, notnull: true }
   relations:
     Celula:             { onDelete: RESTRICT, alias: Celula, local: celula_id, foreign: id, foreignAlias: Celula }
+    Asistencia:         { onDelete: RESTRICT, alias: Asistencia, local: id, foreign: reunion_id, foreignAlias: Asistencia }
 Seguimiento:
   actAs: [ Timestampable: ~ ]
   columns:

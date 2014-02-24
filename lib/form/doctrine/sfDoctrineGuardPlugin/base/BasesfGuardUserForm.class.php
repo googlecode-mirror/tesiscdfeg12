@@ -55,7 +55,7 @@ abstract class BasesfGuardUserForm extends BaseFormDoctrine
       'codigo_lider_cdfe' => new sfValidatorString(array('max_length' => 10, 'required' => false)),
       'direccion'         => new sfValidatorString(),
       'telefono'          => new sfValidatorString(array('max_length' => 12, 'required' => false)),
-      'movil'             => new sfValidatorString(array('max_length' => 12)),
+      'movil'             => new sfValidatorString(array('max_length' => 12, 'required' => false)),
       'sector_ciudad'     => new sfValidatorString(array('max_length' => 100)),
       'username'          => new sfValidatorString(array('max_length' => 128)),
       'algorithm'         => new sfValidatorString(array('max_length' => 128, 'required' => false)),

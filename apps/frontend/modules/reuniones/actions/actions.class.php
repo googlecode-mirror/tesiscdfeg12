@@ -27,10 +27,10 @@ class reunionesActions extends sfActions {
 
     public function executeCreate(sfWebRequest $request) {
         $this->forward404Unless($request->isMethod(sfRequest::POST));
-
+        $reunion = $request->getParameter('reunion');
         $this->form = new ReunionForm();
 
-        $this->processForm($request, $this->form);
+        $this->processForm($request, $this->form, $reunion['celula_id']);
 
         $this->setTemplate('new');
     }
@@ -59,16 +59,32 @@ class reunionesActions extends sfActions {
         $this->redirect('celulas/index');
     }
 
-    protected function processForm(sfWebRequest $request, sfForm $form) {
+    protected function processForm(sfWebRequest $request, sfForm $form, $celulaId = null) {
+        $asistencia = $request->getParameter('reunion')['asistencias'];
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         $fields = $form->getFormFieldSchema()->getValue();
         if ($form->isValid()) {
             $reunion = $form->save();
-            $this->getUser()->setFlash('notice', "Reunión guardada exitosamente", false);
+            $asistencias = explode(',', $asistencia);
+            foreach ($asistencias as $key => $asistencia) {
+                $source = new Asistencia();
+                $source->setReunionId($reunion->getId());
+                $source->setMiembroCelulaId($asistencia);
+                $source->save();
+            }
+            $this->getUser()->setFlash('notice', "Reunión guardada exitosamente", true);
+            if (isset($celulaId)) {
+                $this->redirect('celulas/show?id=' . $celulaId);
+            } else {
+                $this->forward('celulas', 'index');
+            }
+        }
+        $this->getUser()->setFlash('error', "Error!!! " . $form->getErrorSchema(), true);
+        if (isset($celulaId)) {
+            $this->redirect('celulas/show?id=' . $celulaId);
+        } else {
             $this->forward('celulas', 'index');
         }
-        $this->getUser()->setFlash('error', "Error!!! " . $form->getErrorSchema(), false);
-        $this->forward('celulas', 'index');
     }
 
 }

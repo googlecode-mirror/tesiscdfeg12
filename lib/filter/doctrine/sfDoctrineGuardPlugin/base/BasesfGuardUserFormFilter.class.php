@@ -24,7 +24,7 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
       'codigo_lider_cdfe' => new sfWidgetFormFilterInput(),
       'direccion'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'telefono'          => new sfWidgetFormFilterInput(),
-      'movil'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'movil'             => new sfWidgetFormFilterInput(),
       'sector_ciudad'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'username'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'algorithm'         => new sfWidgetFormFilterInput(array('with_empty' => false)),

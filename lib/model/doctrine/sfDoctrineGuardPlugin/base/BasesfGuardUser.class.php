@@ -169,7 +169,7 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
         $this->hasColumn('movil', 'string', 12, array(
              'type' => 'string',
              'fixed' => 1,
-             'notnull' => true,
+             'notnull' => false,
              'length' => 12,
              ));
         $this->hasColumn('sector_ciudad', 'string', 100, array(

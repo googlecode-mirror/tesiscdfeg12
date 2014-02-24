@@ -27,17 +27,18 @@
 <div class="reunion historial">
     <h2 class="titulo">Historial</h2>
     <input type="button" value="+" id="add_reunion" />
-    <ul>
+    <ul id="historial">
         <?php foreach ($historial as $fecha) : ?>
             <li><?php echo $fecha; ?></li>
         <?php endforeach; ?>
     </ul>
 </div>
 <div class="reunion contenedor" style="display: none;">
-    <form action="<?php echo url_for('reuniones/' . ($form->getObject()->isNew() ? 'create' : 'update') . (!$form->getObject()->isNew() ? '?id=' . $form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+    <form action="<?php echo url_for('reuniones/' . ($form->getObject()->isNew() ? 'create' : 'update') . (!$form->getObject()->isNew() ? '?id=' . $form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?> id="crear_reunion">
         <div id="oculto" style="display: none;">
             <?php echo $form['_csrf_token']->render(); ?>
             <?php echo $form['celula_id']->render(); ?>
+            <?php echo $form['asistencias']->render(); ?>
             <?php if (!$form->getObject()->isNew()): ?>
                 <input type="hidden" name="sf_method" value="put" />
             <?php endif; ?>
@@ -62,7 +63,7 @@
             <?php echo $form['observaciones']->render() ?>
         </div>
         <div class="clear">&nbsp;</div>
-        <input type="submit" value="<?php echo __('Save'); ?>" />&nbsp;<a href="#">Cancelar</a>
+        <input type="submit" value="<?php echo __('Save'); ?>" />&nbsp;<a href="#" id="cancelar_reunion">Cancelar</a>
     </form>
 </div>
 
@@ -80,27 +81,35 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function() {
         var lista_id = new Array();
         var lista_nombres = '';
         var contador = 0;
-        $('#btn_agregar').live('click',function(){
-            $(".miembro_id").each(function(){
+        $('#btn_agregar').live('click', function() {
+            $(".miembro_id").each(function() {
                 var miembro = $(this);
-                if(miembro.attr('checked')){
+                if (miembro.attr('checked')) {
                     lista_id[contador] = miembro.val();
-                    lista_nombres += '<li>'+miembro.next("label").text()+'</li>';
+                    lista_nombres += '<li>' + miembro.next("label").text() + '</li>';
                     contador++;
                 }
             });
+            $('#reunion_asistencias').val(lista_id.join(','))
             $('#lista_asistentes').html(lista_nombres);
             $('#lista_asistentes').slideDown(300);
             contador = 0;
             lista_nombres = '';
             $('a.close').click();
         });
-    $('#add_reunion').click(function(){
-        $('.reunion.contenedor').slideDown(300);
+        $('#add_reunion').click(function(event) {
+            event.preventDefault();
+            $('.reunion.contenedor').slideDown(300);
+        });
+        $('#cancelar_reunion').click(function(event) {
+            event.preventDefault();
+            $('#crear_reunion').find('input[type="text"]').val('');
+            $('#crear_reunion').find('textarea').val('');
+            $('.reunion.contenedor').slideUp(300);
+        });
     });
-});
 </script>

@@ -11,18 +11,21 @@
 class ReunionForm extends BaseReunionForm {
 
     public function configure() {
+        $this->widgetSchema['asistencias'] = new sfWidgetFormInputText();
+
         #Widgets
         $this->widgetSchema['celula_id'] = new sfWidgetFormInputText();
         $this->widgetSchema['fecha'] = new sfWidgetFormInputText(
-                        array(),
-                        array(
-                            'maxlength' => sfConfig::get('app_digitos_fecha')
-                        )
+                array(), array(
+            'maxlength' => sfConfig::get('app_digitos_fecha')
+                )
         );
         #Validators
         $this->validatorSchema['fecha'] = new sfValidatorDate(
-                        array('required' => true),
-                        array('invalid' => '"%value%" no es una fecha válida')
+                array('required' => true), array('invalid' => '"%value%" no es una fecha válida')
+        );
+        $this->validatorSchema['asistencias'] = new sfValidatorString(
+                array('required' => true)
         );
         #Ayudas
         $this->widgetSchema->setHelps(array(

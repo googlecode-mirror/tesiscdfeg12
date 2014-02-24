@@ -10,20 +10,20 @@
  * @property clob $observaciones
  * @property integer $celula_id
  * @property Celula $Celula
- * @property Doctrine_Collection $Reuinion
+ * @property Asistencia $Asistencia
  * 
- * @method date                getFecha()         Returns the current record's "fecha" value
- * @method clob                getPalabra()       Returns the current record's "palabra" value
- * @method clob                getObservaciones() Returns the current record's "observaciones" value
- * @method integer             getCelulaId()      Returns the current record's "celula_id" value
- * @method Celula              getCelula()        Returns the current record's "Celula" value
- * @method Doctrine_Collection getReuinion()      Returns the current record's "Reuinion" collection
- * @method Reunion             setFecha()         Sets the current record's "fecha" value
- * @method Reunion             setPalabra()       Sets the current record's "palabra" value
- * @method Reunion             setObservaciones() Sets the current record's "observaciones" value
- * @method Reunion             setCelulaId()      Sets the current record's "celula_id" value
- * @method Reunion             setCelula()        Sets the current record's "Celula" value
- * @method Reunion             setReuinion()      Sets the current record's "Reuinion" collection
+ * @method date       getFecha()         Returns the current record's "fecha" value
+ * @method clob       getPalabra()       Returns the current record's "palabra" value
+ * @method clob       getObservaciones() Returns the current record's "observaciones" value
+ * @method integer    getCelulaId()      Returns the current record's "celula_id" value
+ * @method Celula     getCelula()        Returns the current record's "Celula" value
+ * @method Asistencia getAsistencia()    Returns the current record's "Asistencia" value
+ * @method Reunion    setFecha()         Sets the current record's "fecha" value
+ * @method Reunion    setPalabra()       Sets the current record's "palabra" value
+ * @method Reunion    setObservaciones() Sets the current record's "observaciones" value
+ * @method Reunion    setCelulaId()      Sets the current record's "celula_id" value
+ * @method Reunion    setCelula()        Sets the current record's "Celula" value
+ * @method Reunion    setAsistencia()    Sets the current record's "Asistencia" value
  * 
  * @package    cdfeg12
  * @subpackage model
@@ -62,8 +62,9 @@ abstract class BaseReunion extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'RESTRICT'));
 
-        $this->hasMany('Asistencia as Reuinion', array(
+        $this->hasOne('Asistencia', array(
              'local' => 'id',
-             'foreign' => 'reunion_id'));
+             'foreign' => 'reunion_id',
+             'onDelete' => 'RESTRICT'));
     }
 }
