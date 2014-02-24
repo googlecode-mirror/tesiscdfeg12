@@ -104,7 +104,7 @@ class DiscipuloTable extends sfGuardUserTable {
      * @param type $genero
      * @return type
      */
-    public function getDiscipulosSinCelula() {
+    public function getDiscipulosSinCelula($genero) {
         $q = $this->createQuery('d')
                 ->where('d.id NOT IN (SELECT m.discipulo_id FROM MiembroCelula AS m) OR d.id NOT IN (SELECT a.discipulo_nuevo_id FROM Asignacion AS a)')
                 ->andWhere('d.genero = ?', $genero);
