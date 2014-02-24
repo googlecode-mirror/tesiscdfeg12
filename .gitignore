@@ -11,3 +11,10 @@ plugins/.depdblock
 plugins/.filemap
 plugins/.lock
 plugins/.registry
+/lib/vendor/symfony/test*
+/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/test/*
+/lib/vendor/symfony/lib/plugins/sfPropelPlugin/test/*
+/lib/filter/doctrine/sfDoctrineGuardPlugin/base/*
+/lib/form/doctrine/sfDoctrineGuardPlugin/base/*
+/lib/model/doctrine/sfDoctrineGuardPlugin/base/*
+/web/uploads/*
