@@ -61,7 +61,7 @@ sfGuardUser:
       notnull: true
     email_address:
       type: string(255)
-      notnull: false
+      notnull: true
       unique: true
     fecha_nac:
       type: timestamp
