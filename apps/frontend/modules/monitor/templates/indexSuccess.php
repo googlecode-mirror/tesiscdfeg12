@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <td class="etiqueta">Estado Civil</td>
-            <td><?php echo $discipulo->getEstCivil() ?></td>
+            <td><?php echo ucfirst($discipulo->getEstCivil()) ?></td>
             <td class="etiqueta">Edad</td>
             <td><?php echo $discipulo->getEdad() ?> A&ntilde;os</td>
             <td class="etiqueta">Sector</td>
