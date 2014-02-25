@@ -29,4 +29,37 @@ class MiembroCelula extends BaseMiembroCelula {
         return 'ok';
     }
 
+    public function getAsistenciasReales() {
+        $q = Doctrine_Core::getTable('Asistencia')->createQuery('a')
+                ->where('a.miembro_celula_id = ?', $this->getDiscipuloId());
+        return count($q->execute());
+    }
+
+    public function getCelulasTodas() {
+        $q = Doctrine_Core::getTable('Celula')->createQuery('c')
+                ->innerJoin('c.MiembroCelula m')
+                ->where('m.discipulo_id = ?', $this->getDiscipuloId());
+        return $q->execute();
+    }
+    
+    public function getReunionesTodas(){
+        $seguimiento = Doctrine_Core::getTable('Seguimiento')->createQuery('s')
+                ->innerJoin('s.Asignacion a')
+                ->innerJoin('a.DiscipuloNuevo d')
+                ->where('s.actividad_seguimiento_id = 5 AND d.id = ?', $this->getDiscipuloId())
+                ->limit(1)
+                ->execute();
+        $seguimiento[0]->getFecha();
+        $reuniones = 0;
+        $celulas = $this->getCelulasTodas();
+        foreach ($celulas as $key => $celula) {
+            $reuniones += $celula->getNumeroReuniones($seguimiento[0]->getFecha());
+        }
+        return $reuniones;
+    }
+    
+    public function getPorcentajeAsistencia() {
+        return number_format(($this->getAsistenciasReales() / $this->getReunionesTodas()) * 100, 2);
+    }
+
 }

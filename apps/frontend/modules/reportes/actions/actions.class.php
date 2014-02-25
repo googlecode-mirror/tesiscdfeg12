@@ -28,6 +28,7 @@ class reportesActions extends sfActions {
         $this->fechas = Doctrine_Core::getTable('Seguimiento')->getYearsMonths();
 
         $this->celulas = Doctrine_Core::getTable('Celula')->getCelulasConReuniones();
+        
     }
 
 }

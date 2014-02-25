@@ -46,5 +46,5 @@ class MiembroCelulaTable extends Doctrine_Table {
         $q->addComponent('d', 'Discipulo d');
         return $q->execute();
     }
-
+    
 }

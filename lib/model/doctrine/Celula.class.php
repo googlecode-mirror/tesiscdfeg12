@@ -12,27 +12,28 @@
  */
 class Celula extends BaseCelula {
 
-    public function getNumeroReuniones() {
+    public function getNumeroReuniones($fecha = null) {
         $reunion = Doctrine_Core::getTable('Reunion')->createQuery('r')
-                ->where('r.celula_id = ?', $this->getId())
-                ;
+                ->where('r.celula_id = ?', $this->getId());
+        if(isset($fecha) && $fecha != ''){
+            $reunion->andWhere('r.fecha > ?', $fecha);
+        }
         return count($reunion->execute());
     }
-    
-    public function getNumeroMiembros(){
+
+    public function getNumeroMiembros() {
         $miembros = Doctrine_Core::getTable('MiembroCelula')->createQuery('m')
                 ->where('m.celula_id = ?', $this->getId())
-                ;
+        ;
         return count($miembros->execute());
     }
-    
+
     public function getReunion() {
         $reunion = Doctrine_Core::getTable('Reunion')->createQuery('r')
-                ->where('r.celula_id = ?', $this->getId())
-                ;
+                ->where('r.celula_id = ?', $this->getId());
         return $reunion->execute();
     }
-    
+
     public function getAsistenciasReales() {
         $totalAsistencias = 0;
         foreach ($this->getReunion() as $key => $reunion) {
@@ -40,8 +41,15 @@ class Celula extends BaseCelula {
         }
         return $totalAsistencias;
     }
-    
-    public function getPorcentajeAssitencias(){
+
+    public function getMiembros() {
+        $miembros = Doctrine_Core::getTable('MiembroCelula')->createQuery('m')
+                ->where('m.celula_id = ?', $this->getId())
+        ;
+        return $miembros->execute();
+    }
+
+    public function getPorcentajeAssitencias() {
         $esperadas = $this->getNumeroMiembros() * $this->getNumeroReuniones();
         return number_format(($this->getAsistenciasReales() / $esperadas) * 100, 2);
     }
