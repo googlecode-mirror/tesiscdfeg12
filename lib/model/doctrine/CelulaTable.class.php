@@ -40,5 +40,11 @@ class CelulaTable extends Doctrine_Table {
                 ->where('c.discipulo_lider_id = ?', $id_lider);
         return $q->execute();
     }
+    
+    public function getCelulasConReuniones() {
+        $q = $this->createQuery('c')
+                ->innerJoin('c.Reunion r');
+        return $q->execute();
+    }
 
 }

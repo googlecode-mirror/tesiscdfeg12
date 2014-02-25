@@ -26,6 +26,8 @@ class reportesActions extends sfActions {
                 ->where('a.id >= 4')
                 ->execute();
         $this->fechas = Doctrine_Core::getTable('Seguimiento')->getYearsMonths();
+
+        $this->celulas = Doctrine_Core::getTable('Celula')->getCelulasConReuniones();
     }
 
 }

@@ -1,20 +1,12 @@
 <?php use_helper('I18N'); ?>
-
-<!--<ul>
-<?php foreach ($fechas as $key => $fecha) : ?>
-                                                                    <li>
-    <?php echo $fecha->getRaw('year') . " - " . $fecha->getRaw('month') ?>
-                                                                        <ul>
-    <?php foreach (Doctrine_Core::getTable('Seguimiento')->countActividadesFecha($fecha->getRaw('month'), $fecha->getRaw('year')) as $key1 => $value) : ?>
-                                                                                                                                            <li><?php echo $value['ActividadSeguimiento']['nombre'] . " - " . $value['numero'] ?></li>
+<ul>
+    <?php foreach ($celulas as $key => $celula) : ?>
+        <li>
+            <?php echo $celula->getId() . " " . $celula->getPorcentajeAssitencias(); ?>
+        </li>
     <?php endforeach; ?>
-                                                                            <li>KEY <?php echo $key1 ?></li>
-                                                                        </ul>
-                                                                    </li>
-<?php endforeach; ?>
-</ul>-->
-
-<<table>
+</ul>
+<table>
     <tr>
         <td>
             <div id="tipos" class="chart-container"></div>
@@ -45,8 +37,6 @@
             }
             }
     });
-    
-    
 <?php for ($i = 4; $i <= 6; $i++) : ?>
         var s<?php echo $i ?> = [ <?php foreach ($fechas as $key => $fecha) : ?> <?php foreach (Doctrine_Core::getTable('Seguimiento')->countActividadesFecha($fecha->getRaw('month'), $fecha->getRaw('year')) as $key1 => $value) : ?> <?php if ($value['actividad_seguimiento_id'] == $i) : ?> <?php echo $value['numero'] ?>, <?php else: ?> 0, <?php endif; ?> <?php endforeach; ?> <?php endforeach; ?> ];
 <?php endfor; ?>

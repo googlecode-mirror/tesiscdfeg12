@@ -23,7 +23,7 @@ Asistencia:
     reunion_id:         { type: integer, notnull: true }
     miembro_celula_id:  { type: integer, notnull: true }
   relations:
-    Reunion:            { onDelete: RESTRICT, alias: Reunion, local: reunion_id, foreign: id, foreignAlias: Reuinion }
+    Reunion:            { onDelete: CASCADE, alias: Reunion, local: reunion_id, foreign: id, foreignAlias: Reuinion }
     MiembroCelula:      { onDelete: RESTRICT, alias: Miembro, local: miembro_celula_id, foreign: id, foreignAlias: MiembroCelula }
 Celula:
   actAs: [ Timestampable: ~ ]
@@ -34,6 +34,8 @@ Celula:
     discipulo_lider_id: { type: integer, notnull: true, unique: true }
   relations:
     sfGuardUser:        { onDelete: CASCADE, alias: Lider, local: discipulo_lider_id, foreign: id, foreignAlias: Lider }
+    Reunion:            { onDelete: CASCADE, alias: Reunion, local: id, foreign: celula_id, foreignAlias: Reunion }
+    MiembroCelula:      { onDelete: CASCADE, alias: MiembroCelula, local: id, foreign: celula_id, foreignAlias: MiembroCelula }
 Escuela:
   actAs: [ Timestampable: ~ ]
   columns:
@@ -91,7 +93,8 @@ MiembroCelula:
     discipulo_id:       { type: integer, notnull: true }
   relations:
     sfGuardUser:        { onDelete: CASCADE, alias: Discipulo, local: discipulo_id, foreign: id, foreignAlias: Discipulo }
-    Celula:             { onDelete: RESTRICT, foreignAlias: Celula, local: celula_id, foreign: id }
+    Celula:             { onDelete: CASCADE, foreignAlias: Celula, local: celula_id, foreign: id, foreignAlias: Celula }
+    Asistencia:         { onDelete: RESTRICT, foreignAlias: Asistencia, local: id, foreign: miembro_celula_id, foreignAlias: Asistencia }
   indexes:
     MiembroDeCelula:
       fields:           [celula_id, discipulo_id]
@@ -110,7 +113,7 @@ Reunion:
     celula_id:          { type: integer, notnull: true }
   relations:
     Celula:             { onDelete: RESTRICT, alias: Celula, local: celula_id, foreign: id, foreignAlias: Celula }
-    Asistencia:         { onDelete: RESTRICT, alias: Asistencia, local: id, foreign: reunion_id, foreignAlias: Asistencia }
+    Asistencia:         { onDelete: CASCADE, alias: Asistencia, local: id, foreign: reunion_id, foreignAlias: Asistencia }
   indexes:
     Asignacion:
       fields:           [fecha, celula_id]

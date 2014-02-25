@@ -12,6 +12,13 @@
  */
 class Reunion extends BaseReunion {
 
+    public function getNumeroAsistencias() {
+        $asistencias = Doctrine_Core::getTable('Asistencia')->createQuery('a')
+                ->where('a.reunion_id = ?', $this->getId())
+                ->execute();
+        return count($asistencias);
+    }
+    
     public function __toString() {
         return $this->getFecha();
     }
