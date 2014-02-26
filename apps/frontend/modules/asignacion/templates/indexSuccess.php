@@ -19,6 +19,7 @@
                     <th style="min-width: 80px;">Telefono</th>
                     <th style="min-width: 80px;">Movil</th>
                     <th style="min-width: 80px;">Sector</th>
+                    <th style="min-width: 80px;">Líder asignado</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@
                             <td><?php echo $nuevo->getTelefono() ?></td>
                             <td><?php echo $nuevo->getMovil() ?></td>
                             <td><?php echo $nuevo->getSectorCiudad() ?></td>
+                            <td><?php echo $nuevo->getLiderAsignado() ?></td>
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>

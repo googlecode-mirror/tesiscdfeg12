@@ -145,8 +145,15 @@
             },
             axes: {
             xaxis: {
-            renderer: $.jqplot.CategoryAxisRenderer
-            }
+                renderer: $.jqplot.CategoryAxisRenderer,
+                label: 'Discípulos',
+                labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                tickOptions: {
+                    angle: -30,
+                    fontFamily: 'Courier New',
+                    fontSize: '9pt'
+                }
             },
             highlighter: { show: false }
     });

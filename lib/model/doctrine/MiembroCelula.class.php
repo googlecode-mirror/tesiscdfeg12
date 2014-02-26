@@ -32,7 +32,7 @@ class MiembroCelula extends BaseMiembroCelula {
     public function getAsistenciasReales() {
         $q = Doctrine_Core::getTable('Asistencia')->createQuery('a')
                 ->where('a.miembro_celula_id = ?', $this->getDiscipuloId());
-        return count($q->execute());
+        return $q->count();
     }
 
     public function getCelulasTodas() {

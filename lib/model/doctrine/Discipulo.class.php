@@ -140,5 +140,10 @@ class Discipulo extends sfGuardUser {
 
         return $edad;
     }
+    
+    public function getLiderAsignado(){
+        $asignacion = Doctrine_Core::getTable('Asignacion')->createQuery('a')->where('a.discipulo_nuevo_id = ?', $this->getId())->execute();
+        return $asignacion[0]->getLiderAsignado();
+    }
 
 }

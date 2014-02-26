@@ -18,7 +18,13 @@ class Asignacion extends BaseAsignacion {
      */
     public function __toString() {
         $discipulo = $this->getDiscipuloNuevo();
-        return $discipulo->getFirstName() . " " . $discipulo->getLastName();
+        return ucwords(strtolower($discipulo->getFirstName() . " " . $discipulo->getLastName()));
+    }
+    
+    public function getLiderAsignado() {
+        $lider = Doctrine_Core::getTable('Discipulo')->createQuery('d')->where('d.id = ?', $this->getDiscipuloLiderId())->execute();
+//        $lider = $this->getDiscipuloLider();
+        return ucwords(strtolower($lider[0]->getFirstName() . " " . $lider[0]->getLastName()));
     }
 
     /**

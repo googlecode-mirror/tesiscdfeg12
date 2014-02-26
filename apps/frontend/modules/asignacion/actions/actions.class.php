@@ -139,6 +139,7 @@ class asignacionActions extends sfActions {
     protected function processForm(sfWebRequest $request, sfForm $form) {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         if ($form->isValid()) {
+            
             $discipulo = $form->save();
 
             $this->redirect('asignacion/edit?id=' . $discipulo->getId());

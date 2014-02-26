@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main.css, demo_table_jui.css, jquery-ui-1.8.16.custom.css, apprise.min.css, jquery.jqplot.min.css]
 
-  javascripts:    [jquery-1.6.2.min.js, apprise-1.5.min.js, ui.core.js, jquery.tools.min.js, jquery.dataTables.js, jquery.windows-engine.js, jquery.jqplot.min.js, shCore.min.js, shBrushJScript.min.js, shBrushXml.min.js, jqplot.categoryAxisRenderer.min.js, jqplot.barRenderer.min.js, jqplot.pointLabels.min.js, cdfeg12_interact.js]
+  javascripts:    [jquery-1.6.2.min.js, apprise-1.5.min.js, ui.core.js, jquery.tools.min.js, jquery.dataTables.js, jquery.windows-engine.js, jquery.jqplot.min.js, shCore.min.js, shBrushJScript.min.js, shBrushXml.min.js, jqplot.logAxisRenderer.min.js, jqplot.canvasTextRenderer.min.js, jqplot.canvasAxisTickRenderer.min.js, jqplot.dateAxisRenderer.min.js, jqplot.categoryAxisRenderer.min.js, jqplot.barRenderer.min.js, jqplot.pointLabels.min.js, cdfeg12_interact.js]
 
   has_layout:     true
   layout:         layout

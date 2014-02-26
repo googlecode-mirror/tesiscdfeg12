@@ -18,14 +18,14 @@ class Celula extends BaseCelula {
         if(isset($fecha) && $fecha != ''){
             $reunion->andWhere('r.fecha > ?', $fecha);
         }
-        return count($reunion->execute());
+        return $reunion->count();
     }
 
     public function getNumeroMiembros() {
         $miembros = Doctrine_Core::getTable('MiembroCelula')->createQuery('m')
                 ->where('m.celula_id = ?', $this->getId())
         ;
-        return count($miembros->execute());
+        return $miembros->count();
     }
 
     public function getReunion() {
