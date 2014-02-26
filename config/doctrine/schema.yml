@@ -24,7 +24,7 @@ Asistencia:
     miembro_celula_id:  { type: integer, notnull: true }
   relations:
     Reunion:            { onDelete: CASCADE, alias: Reunion, local: reunion_id, foreign: id, foreignAlias: Reuinion }
-    MiembroCelula:      { onDelete: RESTRICT, alias: Miembro, local: miembro_celula_id, foreign: id, foreignAlias: MiembroCelula }
+    sfGuardUser:        { onDelete: RESTRICT, alias: Miembro, local: miembro_celula_id, foreign: id, foreignAlias: MiembroCelula }
 Celula:
   actAs: [ Timestampable: ~ ]
   columns:
