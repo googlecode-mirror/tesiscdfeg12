@@ -109,7 +109,7 @@ class Discipulo extends sfGuardUser {
      * @return type 
      */
     public function __toString() {
-        return $this->getFirstName() . " " . $this->getLastName();
+        return ucwords($this->getFirstName() . " " . $this->getLastName());
     }
 
     /**

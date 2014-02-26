@@ -23,7 +23,7 @@
     <tbody>
         <?php foreach ($sf_guard_users as $sf_guard_user): ?>
             <tr>
-                <td><a href="<?php echo url_for('@monitor?id_discipulo=' . $sf_guard_user->getId()) ?>"><?php echo $sf_guard_user->getFirstName() . " " . $sf_guard_user->getLastName() ?></a></td>
+                <td><a href="<?php echo url_for('@monitor?id_discipulo=' . $sf_guard_user->getId()) ?>"><?php echo $sf_guard_user ?></a></td>
                 <td><?php echo $sf_guard_user->getEmailAddress() ?></td>
                 <td style="text-align: center;"><?php echo $sf_guard_user->getEdad() ?></td>
                 <td style="text-align: center;"><?php echo $sf_guard_user->getEstCivil() ?></td>

@@ -17,7 +17,7 @@ class sfGuardUser extends PluginsfGuardUser {
      * @return String Nombre y apellidos del discipulo
      */
     public function __toString() {
-        return $this->getFirstName() . " " . $this->getLastName();
+        return ucwords(strtolower($this->getFirstName() . " " . $this->getLastName()));
     }
 
     /**

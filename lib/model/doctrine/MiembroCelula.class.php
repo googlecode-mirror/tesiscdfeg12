@@ -13,7 +13,7 @@
 class MiembroCelula extends BaseMiembroCelula {
 
     public function __toString() {
-        return $this->getDiscipulo()->getFirstName() . " " . $this->getDiscipulo()->getLastName();
+        return ucwords(strtolower($this->getDiscipulo()->getFirstName() . " " . $this->getDiscipulo()->getLastName()));
     }
 
     /**
