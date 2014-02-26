@@ -24,7 +24,7 @@ class Asignacion extends BaseAsignacion {
     public function getLiderAsignado() {
         $lider = Doctrine_Core::getTable('Discipulo')->createQuery('d')->where('d.id = ?', $this->getDiscipuloLiderId())->execute();
 //        $lider = $this->getDiscipuloLider();
-        if (count($lider)) {
+        if (count($lider) > 0) {
             return ucwords(strtolower($lider[0]->getFirstName() . " " . $lider[0]->getLastName()));
         } else {
             return "";
