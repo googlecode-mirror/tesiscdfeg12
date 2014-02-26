@@ -37,6 +37,8 @@ class MiembroCelula extends BaseMiembroCelula {
 
     public function getCelulasTodas() {
         $q = Doctrine_Core::getTable('Celula')->createQuery('c')
+                ->select('c.*')
+                ->distinct()
                 ->innerJoin('c.MiembroCelula m')
                 ->where('m.discipulo_id = ?', $this->getDiscipuloId());
         return $q->execute();
@@ -44,6 +46,8 @@ class MiembroCelula extends BaseMiembroCelula {
     
     public function getReunionesTodas(){
         $seguimiento = Doctrine_Core::getTable('Seguimiento')->createQuery('s')
+//                ->select('s*')
+//                ->distinct()
                 ->innerJoin('s.Asignacion a')
                 ->innerJoin('a.DiscipuloNuevo d')
                 ->where('s.actividad_seguimiento_id = 5 AND d.id = ?', $this->getDiscipuloId())

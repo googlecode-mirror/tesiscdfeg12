@@ -57,8 +57,16 @@
             },
             axes: {
             xaxis: {
-            renderer: $.jqplot.CategoryAxisRenderer
-            }
+                renderer: $.jqplot.CategoryAxisRenderer,
+                label: 'Tipos de discípulos',
+                labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                tickOptions: {
+                    angle: -30,
+                    fontFamily: 'Courier New',
+                    fontSize: '8pt'
+                }
+            },
             }
     });
             /**
@@ -86,12 +94,17 @@
                     series: [<?php foreach ($actividades as $actividad) : ?>{label: '<?php echo $actividad->getNombre(); ?>'}, <?php endforeach; ?>],
                     axes: {
                     xaxis: {
-                    renderer: $.jqplot.CategoryAxisRenderer,
-                            ticks: ticks,
-                            tickOptions: {
-                            angle: - 30,
-                            },
-                    },
+                        ticks: ticks,
+                renderer: $.jqplot.CategoryAxisRenderer,
+                label: 'Fechas',
+                labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                tickOptions: {
+                    angle: -30,
+                    fontFamily: 'Courier New',
+                    fontSize: '8pt'
+                }
+            },
                     }
             });
             $('#segimiento').bind('jqplotDataHighlight', function(ev, seriesIndex, pointIndex, data) {
@@ -122,8 +135,16 @@
             },
             axes: {
             xaxis: {
-            renderer: $.jqplot.CategoryAxisRenderer
-            }
+                renderer: $.jqplot.CategoryAxisRenderer,
+                label: 'Líderes de célula',
+                labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                tickOptions: {
+                    angle: -30,
+                    fontFamily: 'Courier New',
+                    fontSize: '8pt'
+                }
+            },
             },
             highlighter: { show: false }
     });
@@ -152,8 +173,9 @@
                 tickOptions: {
                     angle: -30,
                     fontFamily: 'Courier New',
-                    fontSize: '9pt'
+                    fontSize: '8pt'
                 }
+            },
             },
             highlighter: { show: false }
     });

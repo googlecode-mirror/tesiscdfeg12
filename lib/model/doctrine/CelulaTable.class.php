@@ -43,6 +43,8 @@ class CelulaTable extends Doctrine_Table {
     
     public function getCelulasConReuniones() {
         $q = $this->createQuery('c')
+                ->select('c.*')
+                ->distinct()
                 ->innerJoin('c.Reunion r');
         return $q->execute();
     }
