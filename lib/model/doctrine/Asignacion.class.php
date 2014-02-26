@@ -11,7 +11,7 @@
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 class Asignacion extends BaseAsignacion {
-    
+
     /**
      * Obtiene el nombre del nuevo discipulo para asignar
      * @return String Nombre del nuevo discipulo 
@@ -20,11 +20,15 @@ class Asignacion extends BaseAsignacion {
         $discipulo = $this->getDiscipuloNuevo();
         return ucwords(strtolower($discipulo->getFirstName() . " " . $discipulo->getLastName()));
     }
-    
+
     public function getLiderAsignado() {
         $lider = Doctrine_Core::getTable('Discipulo')->createQuery('d')->where('d.id = ?', $this->getDiscipuloLiderId())->execute();
 //        $lider = $this->getDiscipuloLider();
-        return ucwords(strtolower($lider[0]->getFirstName() . " " . $lider[0]->getLastName()));
+        if (count($lider)) {
+            return ucwords(strtolower($lider[0]->getFirstName() . " " . $lider[0]->getLastName()));
+        } else {
+            return "";
+        }
     }
 
     /**
