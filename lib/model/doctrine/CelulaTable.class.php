@@ -41,11 +41,13 @@ class CelulaTable extends Doctrine_Table {
         return $q->execute();
     }
     
-    public function getCelulasConReuniones() {
+    public function getCelulasConReuniones($genero) {
         $q = $this->createQuery('c')
                 ->select('c.*')
                 ->distinct()
-                ->innerJoin('c.Reunion r');
+                ->innerJoin('c.Reunion r')
+                ->innerJoin('c.Lider d')
+                ->where('d.genero = ?', $genero);
         return $q->execute();
     }
 

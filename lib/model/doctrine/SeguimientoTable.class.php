@@ -39,6 +39,19 @@ class SeguimientoTable extends Doctrine_Table {
         return $result;
     }
 
+    public function filtrarGenero($genero, $year, $month) {
+        $q = $this->createQuery('s')
+                ->select('DISTINCT year(s.fecha) year, monthname(s.fecha) month')
+                ->leftJoin('s.Asignacion a')
+                ->leftJoin('a.DiscipuloNuevo d')
+                ->where('d.genero = ?', $genero)
+                ->andWhere('year(s.fecha) = ? AND monthname(s.fecha) = ?', array($year, $month))
+                ->orderBy('s.fecha')
+                ->setHydrationMode(Doctrine::HYDRATE_ARRAY);
+        $result = $q->execute();
+        return $result;
+    }
+
     public function countActividadesFecha($month, $year) {
         $q = $this->createQuery('s')
                 ->innerJoin('s.ActividadSeguimiento a')

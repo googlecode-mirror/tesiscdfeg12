@@ -20,8 +20,10 @@
         <td>
             <div id="tipos" class="chart-container"></div>
         </td>
+    </tr>
+    <tr>
         <td>
-            <div id="segimiento" class="chart-container"></div>
+            <div id="segimiento" style="width: 800px;"></div>
         </td>
     </tr>
     <tr>
@@ -73,11 +75,11 @@
              * Reporte de estadistica de consolidacion.
              */
 <?php for ($i = 4; $i <= 6; $i++) : ?>
-        var s<?php echo $i ?> = [ <?php foreach ($fechas as $key => $fecha) : ?> <?php foreach (Doctrine_Core::getTable('Seguimiento')->countActividadesFecha($fecha->getRaw('month'), $fecha->getRaw('year')) as $key1 => $value) : ?> <?php if ($value['actividad_seguimiento_id'] == $i) : ?> <?php echo $value['numero'] ?>, <?php else: ?> 0, <?php endif; ?> <?php endforeach; ?> <?php endforeach; ?> ];
+        var s<?php echo $i ?> = [ <?php foreach ($fechas as $key => $fecha) :  ?> <?php foreach (Doctrine_Core::getTable('Seguimiento')->countActividadesFecha($fecha->getRaw(0)['month'], $fecha->getRaw(0)['year']) as $key1 => $value) : ?> <?php if ($value['actividad_seguimiento_id'] == $i) : ?> <?php echo $value['numero'] ?>, <?php else: ?> 0, <?php endif; ?> <?php endforeach; ?> <?php endforeach; ?> ];
 <?php endfor; ?>
     var ticks = [
 <?php foreach ($fechas as $key => $fecha) : ?>
-        '<?php echo __($fecha->getRaw('month')) . " " . $fecha->getRaw('year') ?>',
+        '<?php echo __($fecha->getRaw(0)['month']) . " " . $fecha->getRaw(0)['year'] ?>',
 <?php endforeach; ?>
     ];
             plot2 = $.jqplot('segimiento', [ <?php for ($i = 4; $i <= 6; $i++) : ?> s<?php echo $i ?>, <?php endfor; ?> ], {
