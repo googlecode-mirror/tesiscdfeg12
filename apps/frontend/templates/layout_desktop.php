@@ -62,26 +62,32 @@
                     </ul>
                 </div>
             <?php endif; ?>
-            <?php if ($sf_user->hasCredential('Lider de red') or $sf_user->hasCredential('Lider de celula')): ?>
+            <?php if ($sf_user->hasCredential('Lider de red') or $sf_user->hasCredential('Lider de celula') or $sf_user->hasCredential('Discipulo')): ?>
                 <div class="menu_container">
                     L&iacute;deres
                     <ul class="menu_group">
-                        <li class="menu_link" onclick="crearVentana('Celulas', '<?php echo url_for('celulas') ?>', 'Administración de células');">
-                            <?php echo image_tag('desktop/dock/celulas.png', array('alt' => 'células', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
-                            C&eacute;lulas
-                        </li>
-                        <li class="menu_link" onclick="crearVentana('Asignacion', '<?php echo url_for('asignacion') ?>', 'Asignación de nuevos');">
-                            <?php echo image_tag('desktop/dock/asignar.png', array('alt' => 'asignación', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
-                            Asignaci&oacute;n
-                        </li>
-                        <li class="menu_link" onclick="crearVentana('Seguimiento', '<?php echo url_for('seguimiento') ?>', 'Seguimiento de nuevos');">
-                            <?php echo image_tag('desktop/dock/seguimiento.png', array('alt' => 'seguimiento', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
-                            Seguimiento
-                        </li>
-                        <li class="menu_link" onclick="crearVentana('Seguidores', '<?php echo url_for('seguidores') ?>', 'Miembros de células');">
-                            <?php echo image_tag('desktop/dock/seguidores.png', array('alt' => 'seguidores', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
-                            Seguidores
-                        </li>
+                        <?php if ($sf_user->hasCredential('Lider de red') or $sf_user->hasCredential('Lider de celula') or !$sf_user->hasCredential('Discipulo')): ?>
+                            <li class="menu_link" onclick="crearVentana('Celulas', '<?php echo url_for('celulas') ?>', 'Administración de células');">
+                                <?php echo image_tag('desktop/dock/celulas.png', array('alt' => 'células', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
+                                C&eacute;lulas
+                            </li>
+                            <li class="menu_link" onclick="crearVentana('Asignacion', '<?php echo url_for('asignacion') ?>', 'Asignación de nuevos');">
+                                <?php echo image_tag('desktop/dock/asignar.png', array('alt' => 'asignación', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
+                                Asignaci&oacute;n
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($sf_user->hasCredential('Lider de red') or $sf_user->hasCredential('Lider de celula') or $sf_user->hasCredential('Discipulo')): ?>
+                            <li class="menu_link" onclick="crearVentana('Seguimiento', '<?php echo url_for('seguimiento') ?>', 'Seguimiento de nuevos');">
+                                <?php echo image_tag('desktop/dock/seguimiento.png', array('alt' => 'seguimiento', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
+                                Seguimiento
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($sf_user->hasCredential('Lider de red') or $sf_user->hasCredential('Lider de celula') or !$sf_user->hasCredential('Discipulo')): ?>
+                            <li class="menu_link" onclick="crearVentana('Seguidores', '<?php echo url_for('seguidores') ?>', 'Miembros de células');">
+                                <?php echo image_tag('desktop/dock/seguidores.png', array('alt' => 'seguidores', 'width' => '20', 'height' => '20', 'style' => 'float:left; margin-right: 7px;')); ?>
+                                Seguidores
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             <?php endif; ?>
