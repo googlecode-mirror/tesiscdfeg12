@@ -109,7 +109,7 @@ Reunion:
   columns:
     fecha:              { type: date(25), notnull: true}
     palabra:            { type: clob, notnull: true }
-    observaciones:      { type: clob, notnull: true }
+    observaciones:      { type: clob, notnull: false }
     celula_id:          { type: integer, notnull: true }
   relations:
     Celula:             { onDelete: RESTRICT, alias: Celula, local: celula_id, foreign: id, foreignAlias: Celula }
