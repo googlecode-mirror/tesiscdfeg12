@@ -20,7 +20,7 @@
             </tr>
         </tfoot>
         <tbody>
-            <tr><th>Discipulo</th>
+            <tr><th>Discípulo</th>
                 <td>
                     <input type="button" id="btn_lista_asignacion" value="Examinar..." rel="#lista_asignados" />
                     <span class="li_seleccionado">&nbsp;</span>

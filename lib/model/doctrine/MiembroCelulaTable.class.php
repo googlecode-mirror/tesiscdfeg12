@@ -37,13 +37,14 @@ class MiembroCelulaTable extends Doctrine_Table {
      * @param integer $id_lider el Identificacor del lider
      * @return MiembroCelula Lista de miembros encontrados 
      */
-    public function getMiembrosLideresPorLider($id_lider) {
+    public function getMiembrosLideresPorLider($id_lider, $genero) {
         $q = new Doctrine_RawSql();
         $q->select('d.*');
         $q->from('miembro_celula mc inner join celula c on c.id = mc.celula_id inner join sf_guard_user d on mc.discipulo_id = d.id');
-        $q->where('c.discipulo_lider_id = ?', $id_lider);
-//        $q->andWhere('d.tipo_discipulo > ?', 2);
+        $q->where('c.discipulo_lider_id = ? OR d.tipo_discipulo = ?', array($id_lider, 4));
+        $q->andWhere('d.genero = ?', $genero);
         $q->addComponent('d', 'Discipulo d');
+//        $q->orWhere('d.tipo_discipulo = ?', 4);
         return $q->execute();
     }
     

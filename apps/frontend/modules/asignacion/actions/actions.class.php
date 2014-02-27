@@ -90,7 +90,7 @@ class asignacionActions extends sfActions {
         $this->tipos = Doctrine_Core::getTable('Discipulo')->getTipos();
         $this->tipos_id = Doctrine_Core::getTable('Discipulo')->getTiposId();
         $this->nuevos = Doctrine_Core::getTable('Discipulo')->getDiscipulosSinCelula($this->getUser()->getUserGenero());
-        $this->discipulos = Doctrine_Core::getTable('MiembroCelula')->getMiembrosLideresPorLider($this->getUser()->getUserId());
+        $this->discipulos = Doctrine_Core::getTable('MiembroCelula')->getMiembrosLideresPorLider($this->getUser()->getUserId(), $this->getUser()->getUserGenero());
     }
 
     public function executeShow(sfWebRequest $request) {
