@@ -43,8 +43,8 @@ class MiembroCelula extends BaseMiembroCelula {
                 ->where('m.discipulo_id = ?', $this->getDiscipuloId());
         return $q->execute();
     }
-    
-    public function getReunionesTodas(){
+
+    public function getReunionesTodas() {
         $seguimiento = Doctrine_Core::getTable('Seguimiento')->createQuery('s')
 //                ->select('s*')
 //                ->distinct()
@@ -61,9 +61,13 @@ class MiembroCelula extends BaseMiembroCelula {
         }
         return $reuniones;
     }
-    
+
     public function getPorcentajeAsistencia() {
-        return number_format(($this->getAsistenciasReales() / $this->getReunionesTodas()) * 100, 2);
+        if ($this->getReunionesTodas() > 0) {
+            return number_format(($this->getAsistenciasReales() / $this->getReunionesTodas()) * 100, 2);
+        } else {
+            return 0;
+        }
     }
 
 }
