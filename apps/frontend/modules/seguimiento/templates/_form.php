@@ -4,7 +4,7 @@
 <?php slot('menu') ?>
 <li class="tool_item menu_lista"><?php echo link_to(image_tag('/images/toolbar/t_lista.png') . __('Back to list'), 'seguimiento/index'); ?></li>
 <?php if (!$form->getObject()->isNew()): ?>
-    <li class="tool_item menu_borrar"><?php echo link_to(image_tag('/images/toolbar/t_del.png') . __('Delete'), 'seguimiento/delete?id=' . $form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')); ?></li>
+    <li class="tool_item menu_borrar"><?php echo link_to(image_tag('/images/toolbar/t_del.png') . __('Delete'), 'seguimiento/delete?id=' . $form->getObject()->getId(), array('method' => 'delete', 'confirm' => __('Are you sure?'))); ?></li>
 <?php endif; ?>
 <?php end_slot(); ?>
 <form action="<?php echo url_for('seguimiento/' . ($form->getObject()->isNew() ? 'create' : 'update') . (!$form->getObject()->isNew() ? '?id=' . $form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>

@@ -23,7 +23,7 @@
                 <td><?php echo $seguimiento->getActividadSeguimiento() ?></td>
                 <td>
                     <?php echo link_to(image_tag('jui/edit.png', array('title' => 'Editar', 'alt' => 'Editar')), 'seguimiento/edit?id=' . $seguimiento->getId()); ?>
-                    <?php echo link_to(image_tag('jui/delete.png', array('title' => 'Eliminar', 'alt' => 'Eliminar')), 'seguimiento/delete?id=' . $seguimiento->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')); ?>
+                    <?php echo link_to(image_tag('jui/delete.png', array('title' => 'Eliminar', 'alt' => 'Eliminar')), 'seguimiento/delete?id=' . $seguimiento->getId(), array('method' => 'delete', 'confirm' => __('Are you sure?'))); ?>
                 </td>
             </tr>
         <?php endforeach; ?>

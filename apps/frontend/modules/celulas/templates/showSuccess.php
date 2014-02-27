@@ -33,7 +33,7 @@
             <li>
                 <span><?php echo $reunion->getFecha(); ?></span>
                 <?php echo link_to(image_tag('jui/edit.png', array('title' => 'Editar', 'alt' => 'Editar')), 'reuniones/show?id=' . $reunion->getId(), array('class' => 'btn_ver_reunion')); ?>
-                <?php echo link_to(image_tag('jui/delete.png', array('title' => 'Eliminar', 'alt' => 'Eliminar')), 'reuniones/delete?id=' . $reunion->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+                <?php echo link_to(image_tag('jui/delete.png', array('title' => 'Eliminar', 'alt' => 'Eliminar')), 'reuniones/delete?id=' . $reunion->getId(), array('method' => 'delete', 'confirm' => __('Are you sure?'))) ?>
             </li>
         <?php endforeach; ?>
     </ul>
