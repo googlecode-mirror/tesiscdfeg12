@@ -11,6 +11,7 @@
             <th>Descripci&oacute;n</th>
             <th>Fecha</th>
             <th>Actividad seguimiento</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,10 @@
                 <td><?php echo $seguimiento->getDescripcion() ?></td>
                 <td><?php echo $seguimiento->getFecha() ?></td>
                 <td><?php echo $seguimiento->getActividadSeguimiento() ?></td>
+                <td>
+                    <?php echo link_to(image_tag('jui/edit.png', array('title' => 'Editar', 'alt' => 'Editar')), 'seguimiento/edit?id=' . $seguimiento->getId()); ?>
+                    <?php echo link_to(image_tag('jui/delete.png', array('title' => 'Eliminar', 'alt' => 'Eliminar')), 'seguimiento/delete?id=' . $seguimiento->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')); ?>
+                </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
