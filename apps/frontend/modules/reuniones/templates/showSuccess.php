@@ -9,6 +9,7 @@
         <h2 class="titulo">Fecha</h2>
         <div class="clear">&nbsp;</div>
         <?php echo $form['fecha']->render(); ?>
+        <div style="color: #A23;font-size: 12px;">Use el formato mm/dd/AAAA</div>
         <div class="clear">&nbsp;</div>
         <h2 class="titulo">Asistencias</h2>
         <input type="button" value="+" rel="#lista_miembros" id="add_miembros"/>

@@ -23,7 +23,7 @@ class reunionesActions extends sfActions {
         $this->miembros = Doctrine_Core::getTable('MiembroCelula')->getMiembrosPorLider($this->celula->getDiscipuloLiderId());
         $this->form = new ReunionForm();
         $this->form->setDefault('celula_id', $this->reunion->getCelulaId());
-        $this->form->setDefault('fecha', $this->reunion->getFecha());
+        $this->form->setDefault('fecha', $this->reunion->getDateTimeObject('fecha')->format('m/d/Y'));
         $this->form->setDefault('palabra', $this->reunion->getPalabra());
         $this->form->setDefault('observaciones', $this->reunion->getObservaciones());
         $asistencias = '';
