@@ -27,12 +27,13 @@
 <div class="reunion historial">
     <h2 class="titulo">Historial</h2>
     <input type="button" value="+" id="add_reunion" />
+    <div class="clear"></div>
     <ul id="historial">
         <?php foreach ($historial as $reunion) : ?>
             <li>
-                <?php echo $reunion->getFecha(); ?>
-                <?php echo link_to('ver', 'reuniones/show?id=' . $reunion->getId(), array('class' => 'btn_ver_reunion')); ?>
-                <?php echo link_to('Delete', 'reuniones/delete?id=' . $reunion->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+                <span><?php echo $reunion->getFecha(); ?></span>
+                <?php echo link_to(image_tag('jui/edit.png', array('title' => 'Editar', 'alt' => 'Editar')), 'reuniones/show?id=' . $reunion->getId(), array('class' => 'btn_ver_reunion')); ?>
+                <?php echo link_to(image_tag('jui/delete.png', array('title' => 'Eliminar', 'alt' => 'Eliminar')), 'reuniones/delete?id=' . $reunion->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -130,6 +131,8 @@
         });
         $('.btn_ver_reunion').click(function(event) {
             event.preventDefault();
+            $('#historial').find('li').css('background', 'transparent');
+            $(this).parent('li').css('background', '#9EC156')
             $.ajax({
                 url: $(this).attr("href"),
                 type: 'get',
