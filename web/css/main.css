@@ -77,7 +77,7 @@ h2.titulo {text-align: center;margin: 5px 0px;}
 .titulo_aqua {background: transparent url('/images/desktop/bottom-box.png') no-repeat 0px -62px;height: 40px;width: 200px;overflow: hidden;padding: 10px 0px 0px 0px;margin: 0;}
 .titulo_verde {background: transparent url('/images/desktop/bottom-box.png') no-repeat 0px -122px;height: 40px;width: 200px;overflow: hidden;padding: 10px 0px 0px 0px;margin: 0;}
 .reunion {float: left;margin: 0 3px; padding: 3px;}
-.reunion.historial {background: #6B8E23;}
+.reunion.historial {background: #6B8E23; max-height: 350px; overflow: auto; width: 170px !important;}
 .reunion.asistencias {background: #FFA500;}
 .reunion.palabra {background: #FF4500;}
 .reunion.observaciones {background: #A0522D;}

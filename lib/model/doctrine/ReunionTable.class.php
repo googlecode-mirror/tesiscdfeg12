@@ -24,11 +24,10 @@ class ReunionTable extends Doctrine_Table {
      */
     public function getHistorial($celula_id) {
         $q = $this->createQuery('r')
-                ->select('r.fecha')
                 ->where('r.celula_id = ?', $celula_id)
-                ->orderBy('r.fecha ASC')
+                ->orderBy('r.fecha DESC')
                 ->distinct();
         return $q->execute();
     }
-
+    
 }

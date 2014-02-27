@@ -13,17 +13,18 @@
         <![endif]-->
         <script type="text/javascript" src="/js/jquery-1.6.2.min.js"></script>
         <script type="text/javascript">
-            $(document).ready(function(){
+            $(document).ready(function() {
                 $('.flash').slideDown('slow');
-                setTimeout(function(){
-                    $('.flash').slideUp('slow', function(){
+                setTimeout(function() {
+                    $('.flash').slideUp('slow', function() {
                         $('.flash').remove();
                     });
-                },4000);
+                }, 4000);
             });
         </script>
     </head>
     <body id="cross">
         <?php echo $sf_content ?>
+        <?php include_slot('javascript') ?>
     </body>
 </html>

@@ -19,6 +19,21 @@ class reunionesActions extends sfActions {
     public function executeShow(sfWebRequest $request) {
         $this->reunion = Doctrine_Core::getTable('Reunion')->find(array($request->getParameter('id')));
         $this->forward404Unless($this->reunion);
+        $this->celula = Doctrine_Core::getTable('Celula')->find(array($this->reunion->getCelulaId()));
+        $this->miembros = Doctrine_Core::getTable('MiembroCelula')->getMiembrosPorLider($this->celula->getDiscipuloLiderId());
+        $this->form = new ReunionForm();
+        $this->form->setDefault('celula_id', $this->reunion->getCelulaId());
+        $this->form->setDefault('fecha', $this->reunion->getFecha());
+        $this->form->setDefault('palabra', $this->reunion->getPalabra());
+        $this->form->setDefault('observaciones', $this->reunion->getObservaciones());
+        $asistencias = '';
+        foreach ($this->reunion->getAsistencias() as $asistencia) {
+            $asistencias .= $asistencia->getMiembroCelulaId() . ",";
+        }
+        $this->form->setDefault('asistencias', $asistencias);
+        if ($request->isXmlHttpRequest()) {
+            return $this->setLayout(false);
+        }
     }
 
     public function executeNew(sfWebRequest $request) {
@@ -44,8 +59,8 @@ class reunionesActions extends sfActions {
         $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
         $this->forward404Unless($reunion = Doctrine_Core::getTable('Reunion')->find(array($request->getParameter('id'))), sprintf('Object reunion does not exist (%s).', $request->getParameter('id')));
         $this->form = new ReunionForm($reunion);
-
-        $this->processForm($request, $this->form);
+        $reunion = $request->getParameter('reunion');
+        $this->processForm($request, $this->form, $reunion['celula_id']);
 
         $this->setTemplate('edit');
     }
@@ -65,12 +80,17 @@ class reunionesActions extends sfActions {
         $fields = $form->getFormFieldSchema()->getValue();
         if ($form->isValid()) {
             $reunion = $form->save();
+            foreach ($reunion->getAsistencias() as $borrable) {
+                $borrable->delete();
+            }
             $asistencias = explode(',', $asistencia);
             foreach ($asistencias as $key => $asistencia) {
-                $source = new Asistencia();
-                $source->setReunionId($reunion->getId());
-                $source->setMiembroCelulaId($asistencia);
-                $source->save();
+                if ($asistencia > 0) {
+                    $source = new Asistencia();
+                    $source->setReunionId($reunion->getId());
+                    $source->setMiembroCelulaId($asistencia);
+                    $source->save();
+                }
             }
             $this->getUser()->setFlash('notice', "Reunión guardada exitosamente", true);
             if (isset($celulaId)) {

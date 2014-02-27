@@ -8,11 +8,11 @@
         <?php include_stylesheets() ?>
         <?php include_javascripts() ?>
         <script type="text/javascript">
-            $(document).ready(function(){
-                $('.tool_item').mouseover(function(){
+            $(document).ready(function() {
+                $('.tool_item').mouseover(function() {
                     $(this).addClass('tool_item_hover');
                 });
-                $('.tool_item').mouseout(function(){
+                $('.tool_item').mouseout(function() {
                     $(this).removeClass('tool_item_hover');
                 });
             });
@@ -39,5 +39,6 @@
         <div id="frame_content">
             <?php echo $sf_content ?>
         </div>
+        <?php include_slot('javascript') ?>
     </body>
 </html>

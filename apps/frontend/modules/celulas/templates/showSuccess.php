@@ -28,8 +28,12 @@
     <h2 class="titulo">Historial</h2>
     <input type="button" value="+" id="add_reunion" />
     <ul id="historial">
-        <?php foreach ($historial as $fecha) : ?>
-            <li><?php echo $fecha; ?></li>
+        <?php foreach ($historial as $reunion) : ?>
+            <li>
+                <?php echo $reunion->getFecha(); ?>
+                <?php echo link_to('ver', 'reuniones/show?id=' . $reunion->getId(), array('class' => 'btn_ver_reunion')); ?>
+                <?php echo link_to('Delete', 'celulas/show?id=' . $celula->getId(), array('method' => 'show', 'confirm' => 'Are you sure?')) ?>
+            </li>
         <?php endforeach; ?>
     </ul>
 </div>
@@ -72,19 +76,28 @@
     <ul class="lista_elementos" style="height: 180px;">
         <?php foreach ($miembros as $key => $miembro): ?>
             <li>
-                <input type="checkbox" name="miembro_id" id="miembro_<?php echo $miembro->getDiscipuloId(); ?>" value="<?php echo $miembro->getDiscipuloId(); ?>" class="miembro_id" />
+                <input type="checkbox" name="miembro_id" id="miembro_<?php echo $miembro->getDiscipuloId(); ?>" value="<?php echo $miembro->getDiscipuloId(); ?>" class="miembro_id" checked="checked" />
                 <label for="<?php echo $key ?>"><?php echo $miembro ?></label>
             </li>
         <?php endforeach; ?>
     </ul>
     <input type="button" value="Agregar" id="btn_agregar" />
 </div>
-
+<?php slot('menu') ?>
 <script type="text/javascript">
     $(document).ready(function() {
         var lista_id = new Array();
         var lista_nombres = '';
+        var new_content = '';
         var contador = 0;
+
+        new_content = $('.reunion.contenedor').html();
+        $(document).delegate('input[rel="#lista_miembros"]', 'click', function(event) {
+            event.preventDefault(); //prevent default link action
+            event.stopPropagation();
+            $('input[rel="#lista_miembros"]').overlay();
+        });
+
         $('#btn_agregar').live('click', function() {
             $(".miembro_id").each(function() {
                 var miembro = $(this);
@@ -103,13 +116,29 @@
         });
         $('#add_reunion').click(function(event) {
             event.preventDefault();
+            if (new_content !== '') {
+                $('.reunion.contenedor').html(new_content);
+                $('input[rel="#lista_miembros"]').overlay();
+            }
             $('.reunion.contenedor').slideDown(300);
         });
-        $('#cancelar_reunion').click(function(event) {
+        $(document).delegate('#cancelar_reunion', 'click', function(event) {
             event.preventDefault();
             $('#crear_reunion').find('input[type="text"]').val('');
             $('#crear_reunion').find('textarea').val('');
             $('.reunion.contenedor').slideUp(300);
         });
+        $('.btn_ver_reunion').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr("href"),
+                type: 'get',
+                success: function(response) {
+                    $('.reunion.contenedor').html(response);
+//                    $('.reunion.contenedor').slideDown(300);
+                }
+            });
+        });
     });
 </script>
+<?php end_slot(); ?>

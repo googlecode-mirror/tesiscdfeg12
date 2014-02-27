@@ -125,5 +125,6 @@
         <div id="main_container">
             <?php echo $sf_content ?>
         </div>
+        <?php include_slot('javascript') ?>
     </body>
 </html>
