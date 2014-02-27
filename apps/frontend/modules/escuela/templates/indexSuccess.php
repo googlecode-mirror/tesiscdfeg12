@@ -9,6 +9,7 @@
             <th>Fecha ingreso</th>
             <th style="min-width: 100px;">Discipulo</th>
             <th>Nivel</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,10 @@
                 <td><a href="<?php echo url_for('escuela/show?id=' . $escuela->getId()) ?>"><?php echo $escuela->getFechaIngreso('mm/dd/YYY') ?></a></td>
                 <td><?php echo $escuela->getDiscipulo() ?></td>
                 <td><?php echo $escuela->getNivel() ?></td>
+                <td>
+                    <?php echo link_to(image_tag('jui/edit.png', array('title' => 'Editar', 'alt' => 'Editar')), 'escuela/edit?id=' . $escuela->getId()); ?>
+                    <?php echo link_to(image_tag('jui/delete.png', array('title' => 'Eliminar', 'alt' => 'Eliminar')), 'escuela/delete?id=' . $escuela->getId(), array('method' => 'delete', 'confirm' => __('Are you sure?'))); ?>
+                </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
