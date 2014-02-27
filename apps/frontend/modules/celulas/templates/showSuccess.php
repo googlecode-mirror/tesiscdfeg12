@@ -32,7 +32,7 @@
             <li>
                 <?php echo $reunion->getFecha(); ?>
                 <?php echo link_to('ver', 'reuniones/show?id=' . $reunion->getId(), array('class' => 'btn_ver_reunion')); ?>
-                <?php echo link_to('Delete', 'celulas/show?id=' . $celula->getId(), array('method' => 'show', 'confirm' => 'Are you sure?')) ?>
+                <?php echo link_to('Delete', 'reuniones/delete?id=' . $reunion->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
             </li>
         <?php endforeach; ?>
     </ul>

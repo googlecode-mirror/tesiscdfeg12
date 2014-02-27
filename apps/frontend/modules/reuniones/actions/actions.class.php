@@ -69,9 +69,13 @@ class reunionesActions extends sfActions {
         $request->checkCSRFProtection();
 
         $this->forward404Unless($reunion = Doctrine_Core::getTable('Reunion')->find(array($request->getParameter('id'))), sprintf('Object reunion does not exist (%s).', $request->getParameter('id')));
+        $celula_id = $reunion->getCelulaId();
+        foreach ($reunion->getAsistencias() as $borrable) {
+            $borrable->delete();
+        }
         $reunion->delete();
-
-        $this->redirect('celulas/index');
+        $this->getUser()->setFlash('notice', "Reunión eliminada exitosamente", true);
+        $this->redirect('celulas/show?id=' . $celula_id);
     }
 
     protected function processForm(sfWebRequest $request, sfForm $form, $celulaId = null) {
