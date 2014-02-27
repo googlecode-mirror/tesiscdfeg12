@@ -166,7 +166,6 @@ $(document).ready(function() {
     $('#evento_fecha_hora').datepicker({ dateFormat: 'mm/dd/yy' });
     $('#seguimiento_fecha').datepicker({ dateFormat: 'mm/dd/yy' });
     $('#escuela_fecha_ingreso').datepicker({ dateFormat: 'mm/dd/yy' });
-    $('#reunion_fecha').datepicker({ dateFormat: 'mm/dd/yy' });
     //    $('#sf_guard_user_fecha_nac').datepicker({ dateFormat: 'mm/dd/yy' });
     /**
      *Generación de link confirmar

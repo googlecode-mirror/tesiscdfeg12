@@ -52,7 +52,7 @@
             <h2 class="titulo">Fecha</h2>
             <div class="clear">&nbsp;</div>
             <?php echo $form['fecha']->render(); ?>
-            <div style="color: #aaa;font-size: 12px;">Use el formato mm/dd/AAAA</div>
+            <div style="color: #A23;font-size: 12px;">Use el formato mm/dd/AAAA</div>
             <div class="clear">&nbsp;</div>
             <h2 class="titulo">Asistencias</h2>
             <input type="button" value="+" rel="#lista_miembros" id="add_miembros"/>
@@ -91,10 +91,6 @@
         var lista_nombres = '';
         var new_content = '';
         var contador = 0;
-        $(document).delegate('#reunion_fecha', 'click', function(event) {
-            $.datepicker.setDefaults($.datepicker.regional["es"]);
-            $('#reunion_fecha').datepicker({dateFormat: 'mm/dd/yy'});
-        });
         new_content = $('.reunion.contenedor').html();
         $(document).delegate('input[rel="#lista_miembros"]', 'click', function(event) {
             event.preventDefault(); //prevent default link action
@@ -124,7 +120,7 @@
                 $('.reunion.contenedor').html(new_content);
                 $('input[rel="#lista_miembros"]').overlay();
                 $.datepicker.setDefaults($.datepicker.regional["es"]);
-                $(this).datepicker({dateFormat: 'mm/dd/yy'});
+                $('#reunion_fecha').datepicker({dateFormat: 'mm/dd/yy'});
             }
             $('.reunion.contenedor').slideDown(300);
         });

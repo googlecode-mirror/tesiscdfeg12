@@ -34,6 +34,8 @@
 <script type="text/javascript">
     $('.reunion.contenedor').slideDown(300);
     $('input[rel="#lista_miembros"]').overlay();
+    $.datepicker.setDefaults($.datepicker.regional["es"]);
+    $('#reunion_fecha').datepicker({dateFormat: 'mm/dd/yy'});
 <?php foreach ($reunion->getAsistencias() as $asistencia): ?>
         $('#miembro_<?php echo $asistencia->getMiembroCelulaId() ?>').attr('checked', true);
 <?php endforeach; ?>
