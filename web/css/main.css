@@ -89,3 +89,5 @@ h2.titulo {text-align: center;margin: 5px 0px;}
 #historial li{height: 19px; display: block;}
 #historial li:hover {height: 19px; display: block; background: none repeat scroll 0 0 #9EC156;}
 #historial li span {height: 19px; line-height: 19px; display: inline; margin-right: 10px;}
+.ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all {list-style: none; margin: 0; padding: 0; background: #DDDDDD; max-width: 300px;}
+.ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:hover{background: #DDDDff;}

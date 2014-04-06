@@ -11,8 +11,8 @@
 class MiembroCelulaForm extends BaseMiembroCelulaForm {
 
     public function configure() {
-        $this->widgetSchema['discipulo_id'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema['celula_id'] = new sfWidgetFormInputHidden();
+		$this->widgetSchema['discipulo_id'] = new sfWidgetFormInputHidden();
+		$this->widgetSchema['celula_id']    = new sfWidgetFormInputHidden();
     }
 
 }

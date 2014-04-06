@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Administración de Células
+    #description:  symfony project
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:    [main.css,jquery.windows-engine.css,apprise.min.css]
+
+  javascripts:    [jquery-1.6.2.min.js,apprise-1.5.min.js,ui.core.js,jquery.tools.min.js,jquery.ui.datepicker-es.js,jquery.windows-engine.js,jquery.dataTables.js,ui.widget.min.js,ui.position.min.js,ui.autocomplete.min.js,cdfeg12_interact.js]
+
+  has_layout:     true
+  layout:         layout

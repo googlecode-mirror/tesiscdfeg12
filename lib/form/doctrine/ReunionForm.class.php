@@ -11,29 +11,20 @@
 class ReunionForm extends BaseReunionForm {
 
     public function configure() {
-        $this->widgetSchema['asistencias'] = new sfWidgetFormInputText();
-
+        $this->widgetSchema['asistencias']    = new sfWidgetFormInputText();
         #Widgets
-        $this->widgetSchema['celula_id'] = new sfWidgetFormInputText();
-        $this->widgetSchema['fecha'] = new sfWidgetFormInputText(
-                array(), array(
-            'maxlength' => sfConfig::get('app_digitos_fecha')
-                )
-        );
+        $this->widgetSchema['celula_id']      = new sfWidgetFormInputText();
+        $this->widgetSchema['fecha']          = new sfWidgetFormInputText(array(), array('maxlength' => sfConfig::get('app_digitos_fecha')));
         #Validators
-        $this->validatorSchema['fecha'] = new sfValidatorDate(
-                array('required' => true), array('invalid' => '"%value%" no es una fecha válida')
-        );
-        $this->validatorSchema['asistencias'] = new sfValidatorString(
-                array('required' => true)
-        );
+        $this->validatorSchema['fecha']       = new sfValidatorDate(array('required' => true), array('invalid' => '"%value%" no es una fecha válida'));
+        $this->validatorSchema['asistencias'] = new sfValidatorString(array('required' => true));
         $this->validatorSchema->setPostValidator(
                 new sfValidatorDoctrineUnique(
                 array(
-            'model' => 'Reunion',
-            'column' => array('fecha', 'celula_id'),
+                    'model'  => 'Reunion',
+                    'column' => array('fecha', 'celula_id'),
                 ), array(
-            'invalid' => 'Ya se ha creado una reunión similar'
+                    'invalid' => 'Ya se ha creado una reunión similar'
                 ))
         );
         #Ayudas
